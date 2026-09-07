@@ -12,9 +12,9 @@
           "track": "발레",
           "label": "공연예술학부 무용전공[발레]",
           "capacity": 12,
-          "applicants": 23,
-          "ratio": 1.92,
-          "delta": 0
+          "applicants": 27,
+          "ratio": 2.25,
+          "delta": 4
         },
         {
           "track": "한국무용",
@@ -22,18 +22,18 @@
           "capacity": 7,
           "applicants": 16,
           "ratio": 2.29,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "현대무용",
           "label": "공연예술학부 무용전공[현대무용]",
           "capacity": 8,
-          "applicants": 11,
-          "ratio": 1.38,
+          "applicants": 12,
+          "ratio": 1.5,
           "delta": 1
         }
       ],
-      "stamp": "09.07 23:00",
+      "stamp": "09.08 00:00",
       "stale": false,
       "status": "live"
     },
@@ -49,28 +49,28 @@
           "track": "한국무용",
           "label": "무용전공(한국무용)",
           "capacity": 12,
-          "applicants": 19,
-          "ratio": 1.58,
-          "delta": 4
+          "applicants": 24,
+          "ratio": 2.0,
+          "delta": 5
         },
         {
           "track": "현대무용",
           "label": "무용전공(현대무용)",
           "capacity": 12,
-          "applicants": 18,
-          "ratio": 1.5,
-          "delta": 4
+          "applicants": 21,
+          "ratio": 1.75,
+          "delta": 3
         },
         {
           "track": "발레",
           "label": "무용전공(발레)",
           "capacity": 12,
-          "applicants": 32,
-          "ratio": 2.67,
-          "delta": 2
+          "applicants": 35,
+          "ratio": 2.92,
+          "delta": 3
         }
       ],
-      "stamp": "09.07 23:00",
+      "stamp": "09.08 00:00",
       "stale": false,
       "status": "live"
     },
@@ -86,28 +86,28 @@
           "track": "한국무용",
           "label": "무용예술전공(한국무용)",
           "capacity": 9,
-          "applicants": 19,
-          "ratio": 2.11,
-          "delta": 5
+          "applicants": 21,
+          "ratio": 2.33,
+          "delta": 2
         },
         {
           "track": "현대무용",
           "label": "무용예술전공(현대무용)",
           "capacity": 9,
-          "applicants": 18,
-          "ratio": 2.0,
-          "delta": 2
+          "applicants": 19,
+          "ratio": 2.11,
+          "delta": 1
         },
         {
           "track": "발레",
           "label": "무용예술전공(발레)",
           "capacity": 10,
-          "applicants": 18,
-          "ratio": 1.8,
+          "applicants": 19,
+          "ratio": 1.9,
           "delta": 1
         }
       ],
-      "stamp": "09.07 23:00",
+      "stamp": "09.08 00:00",
       "stale": false,
       "status": "live"
     },
@@ -200,18 +200,22 @@
     {
       "at": "2026-09-07T23:01:10.004641+09:00",
       "ballet_total": 73
+    },
+    {
+      "at": "2026-09-08T00:00:55.607258+09:00",
+      "ballet_total": 81
     }
   ],
-  "updated_at": "2026-09-07T23:01:10.004641+09:00",
+  "updated_at": "2026-09-08T00:00:55.607258+09:00",
   "fingerprint": [
     [
       "kookmin",
-      "09.07 23:00",
+      "09.08 00:00",
       [
         [
           "공연예술학부 무용전공[발레]",
           12,
-          23
+          27
         ],
         [
           "공연예술학부 무용전공[한국무용]",
@@ -221,49 +225,49 @@
         [
           "공연예술학부 무용전공[현대무용]",
           8,
-          11
+          12
         ]
       ]
     ],
     [
       "dongduk",
-      "09.07 23:00",
+      "09.08 00:00",
       [
         [
           "무용전공(한국무용)",
           12,
-          19
+          24
         ],
         [
           "무용전공(현대무용)",
           12,
-          18
+          21
         ],
         [
           "무용전공(발레)",
           12,
-          32
+          35
         ]
       ]
     ],
     [
       "sangmyung",
-      "09.07 23:00",
+      "09.08 00:00",
       [
         [
           "무용예술전공(한국무용)",
           9,
-          19
+          21
         ],
         [
           "무용예술전공(현대무용)",
           9,
-          18
+          19
         ],
         [
           "무용예술전공(발레)",
           10,
-          18
+          19
         ]
       ]
     ],
