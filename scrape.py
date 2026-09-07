@@ -236,6 +236,24 @@ def discover_jinhak_urls():
     return found
 
 
+def match_jinhak(name, table):
+    """학교명으로 경쟁률 주소를 찾는다.
+
+    진학어플라이 표기가 '중앙대학교(서울)' 처럼 캠퍼스가 붙어 나올 수 있어
+    정확히 같지 않아도 한쪽이 다른 쪽으로 시작하면 같은 학교로 본다.
+    """
+    if name in table:
+        return table[name]
+
+    base = name.replace(" ", "")
+    for key, url in table.items():
+        k = key.replace(" ", "")
+        if k.startswith(base) or base.startswith(k):
+            print(f"[정보] '{name}' → 진학어플라이 표기 '{key}' 로 매칭", file=sys.stderr)
+            return url
+    return None
+
+
 # ---------------------------------------------------------------- state
 
 def load_state():
@@ -272,7 +290,7 @@ def collect():
         entry["stale"] = False
         entry["status"] = "pending"
 
-        url = school["url"] or jinhak.get(school["name"])
+        url = school["url"] or match_jinhak(school["name"], jinhak)
         entry["url"] = url
 
         if not url:
