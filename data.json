@@ -1,0 +1,170 @@
+{
+  "schools": {
+    "kookmin": {
+      "key": "kookmin",
+      "name": "국민대학교",
+      "campus": "",
+      "dept": "예술대학 공연예술학부 · 실기/실적위주(무용실기우수자)",
+      "url": "http://ratio.uwayapply.com/Sl5KVyVNOWFhOUpmJSY6Jko3ZlRm",
+      "period": "09.07 ~ 09.11 18:00",
+      "tracks": [
+        {
+          "track": "발레",
+          "label": "공연예술학부 무용전공[발레]",
+          "capacity": 12,
+          "applicants": 13,
+          "ratio": 1.08,
+          "delta": 0
+        },
+        {
+          "track": "한국무용",
+          "label": "공연예술학부 무용전공[한국무용]",
+          "capacity": 7,
+          "applicants": 6,
+          "ratio": 0.86,
+          "delta": 0
+        },
+        {
+          "track": "현대무용",
+          "label": "공연예술학부 무용전공[현대무용]",
+          "capacity": 8,
+          "applicants": 7,
+          "ratio": 0.88,
+          "delta": 0
+        }
+      ],
+      "stamp": "09.07 14:00",
+      "stale": false,
+      "status": "live"
+    },
+    "dongduk": {
+      "key": "dongduk",
+      "name": "동덕여자대학교",
+      "campus": "",
+      "dept": "공연예술대학 · 실기우수자전형",
+      "url": "http://ratio.uwayapply.com/Sl5KOTpWcldhVkpmJSY6Jko3ZlRm",
+      "period": "09.07 ~ 09.11 18:00",
+      "tracks": [
+        {
+          "track": "한국무용",
+          "label": "무용전공(한국무용)",
+          "capacity": 12,
+          "applicants": 5,
+          "ratio": 0.42,
+          "delta": 0
+        },
+        {
+          "track": "현대무용",
+          "label": "무용전공(현대무용)",
+          "capacity": 12,
+          "applicants": 5,
+          "ratio": 0.42,
+          "delta": 0
+        },
+        {
+          "track": "발레",
+          "label": "무용전공(발레)",
+          "capacity": 12,
+          "applicants": 17,
+          "ratio": 1.42,
+          "delta": 0
+        }
+      ],
+      "stamp": "09.07 14:00",
+      "stale": false,
+      "status": "live"
+    },
+    "sangmyung": {
+      "key": "sangmyung",
+      "name": "상명대학교",
+      "campus": "서울",
+      "dept": "스포츠무용학부 · 실기/실적(실기전형)",
+      "url": "http://ratio.uwayapply.com/Sl5KOk0mSmYlJjomSjdmVGY=",
+      "period": "09.07 ~ 09.11 18:00",
+      "tracks": [
+        {
+          "track": "한국무용",
+          "label": "무용예술전공(한국무용)",
+          "capacity": 9,
+          "applicants": 9,
+          "ratio": 1.0,
+          "delta": 0
+        },
+        {
+          "track": "현대무용",
+          "label": "무용예술전공(현대무용)",
+          "capacity": 9,
+          "applicants": 7,
+          "ratio": 0.78,
+          "delta": 0
+        },
+        {
+          "track": "발레",
+          "label": "무용예술전공(발레)",
+          "capacity": 10,
+          "applicants": 11,
+          "ratio": 1.1,
+          "delta": 0
+        }
+      ],
+      "stamp": "09.07 14:00",
+      "stale": false,
+      "status": "live"
+    },
+    "khu": {
+      "key": "khu",
+      "name": "경희대학교",
+      "campus": "서울·경기",
+      "dept": "무용학부",
+      "url": null,
+      "period": "09.08 ~ 09.11 18:00",
+      "tracks": [],
+      "stamp": null,
+      "stale": false,
+      "status": "pending"
+    },
+    "cau": {
+      "key": "cau",
+      "name": "중앙대학교",
+      "campus": "서울",
+      "dept": "무용예술전공",
+      "url": null,
+      "period": "09.08 ~ 09.11 18:00",
+      "tracks": [],
+      "stamp": null,
+      "stale": false,
+      "status": "pending"
+    },
+    "dankook": {
+      "key": "dankook",
+      "name": "단국대학교",
+      "campus": "경기·충남",
+      "dept": "무용과",
+      "url": null,
+      "period": "09.08 ~ 09.11 18:00",
+      "tracks": [],
+      "stamp": null,
+      "stale": false,
+      "status": "pending"
+    },
+    "sungshin": {
+      "key": "sungshin",
+      "name": "성신여자대학교",
+      "campus": "서울",
+      "dept": "무용예술학과",
+      "url": null,
+      "period": "09.08 ~ 09.11 18:00",
+      "tracks": [],
+      "stamp": null,
+      "stale": false,
+      "status": "pending"
+    }
+  },
+  "history": [
+    {
+      "at": "2026-09-07T14:49:29.378784+09:00",
+      "ballet_total": 41
+    }
+  ],
+  "updated_at": "2026-09-07T14:49:29.378784+09:00"
+}
