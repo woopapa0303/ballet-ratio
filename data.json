@@ -51,7 +51,7 @@
           "capacity": 12,
           "applicants": 9,
           "ratio": 0.75,
-          "delta": 4
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -67,7 +67,7 @@
           "capacity": 12,
           "applicants": 18,
           "ratio": 1.5,
-          "delta": 1
+          "delta": 0
         }
       ],
       "stamp": "09.07 15:00",
@@ -88,7 +88,7 @@
           "capacity": 9,
           "applicants": 10,
           "ratio": 1.11,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -96,7 +96,7 @@
           "capacity": 9,
           "applicants": 8,
           "ratio": 0.89,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "발레",
@@ -104,7 +104,7 @@
           "capacity": 10,
           "applicants": 12,
           "ratio": 1.2,
-          "delta": 1
+          "delta": 0
         }
       ],
       "stamp": "09.07 15:00",
@@ -170,7 +170,7 @@
       "ballet_total": 43
     }
   ],
-  "updated_at": "2026-09-07T15:09:18.895349+09:00",
+  "updated_at": "2026-09-07T15:09:34.225020+09:00",
   "fingerprint": [
     [
       "kookmin",
