@@ -582,11 +582,35 @@ def render(results, now):
       <li>수치는 각 대학이 공개 운영하는 지원현황 페이지를 그대로 옮긴 것입니다. 대학 원본은 보통 1시간 단위로 갱신되며, 이 보드는 10분마다 원본을 다시 확인합니다.</li>
       <li>▲▼ 표시는 직전 확인 시점 대비 지원자 증감입니다.</li>
       <li>최종 경쟁률이 아니며 접수 마감(2026.09.11 금 18:00) 전까지 계속 바뀝니다. 정확한 정보는 각 대학 홈페이지에서 확인하세요.</li>
-      <li>마지막 확인: {now.strftime('%Y.%m.%d %H:%M')} (KST)</li>
+      <li>이 화면은 새 숫자가 올라오면 <b>자동으로 다시 불러옵니다</b>. 직접 새로고침하지 않으셔도 됩니다.</li>
+      <li>마지막 반영: {now.strftime('%Y.%m.%d %H:%M')} (KST)</li>
     </ul>
   </div>
 
 </div>
+
+<script>
+  // 대학 원본은 매시 정각에 갱신된다. 30초마다 데이터 파일만 가볍게 확인하고,
+  // 새 값이 올라왔을 때만 화면을 다시 불러온다.
+  // (주소에 시각을 붙여 CDN 캐시를 우회한다 — 그래야 즉시 반영된다.)
+  var CURRENT = "{now.isoformat()}";
+  async function checkForUpdate() {{
+    try {{
+      var res = await fetch("data.json?t=" + Date.now(), {{ cache: "no-store" }});
+      if (!res.ok) return;
+      var data = await res.json();
+      if (data.updated_at && data.updated_at !== CURRENT) {{
+        location.replace(location.pathname + "?v=" + Date.now());
+      }}
+    }} catch (e) {{
+      /* 일시적인 네트워크 오류는 조용히 넘어가고 다음 회차에 다시 확인한다 */
+    }}
+  }}
+  setInterval(checkForUpdate, 30000);
+  document.addEventListener("visibilitychange", function () {{
+    if (!document.hidden) checkForUpdate();   // 휴대폰에서 화면을 다시 켰을 때
+  }});
+</script>
 </body>
 </html>
 """
