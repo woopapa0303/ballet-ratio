@@ -307,22 +307,9 @@ def collect():
 
         results.append(entry)
 
-    state["schools"] = {e["key"]: e for e in results}
-    state["updated_at"] = now.isoformat()
-
-    ballet_total = sum(
-        t["applicants"]
-        for e in results
-        for t in e["tracks"]
-        if t["track"] == "발레"
-    )
-    history = state.get("history", [])
-    if not history or history[-1].get("ballet_total") != ballet_total:
-        history.append({"at": now.isoformat(), "ballet_total": ballet_total})
-        state["history"] = history[-200:]
-
-    save_state(state)
-    return results, now
+    # 여기서는 저장하지 않는다. 값이 실제로 바뀌었을 때만 main() 이 저장한다.
+    # (매번 저장하면 data.json 이 계속 바뀌어 불필요한 커밋과 화면 재로딩이 생긴다.)
+    return results, now, state
 
 
 # ---------------------------------------------------------------- render
@@ -633,18 +620,28 @@ def fingerprint(results):
 
 
 def main():
-    state_before = load_state()
-    prev_fp = state_before.get("fingerprint")
-
-    results, now = collect()
+    results, now, state = collect()
     fp = fingerprint(results)
 
-    if fp == prev_fp and os.path.exists(HTML_PATH):
-        print(f"변경 없음 ({now:%H:%M} KST) — 파일을 갱신하지 않습니다.")
+    if fp == state.get("fingerprint") and os.path.exists(HTML_PATH):
+        print(f"변경 없음 ({now:%H:%M} KST) — 파일을 그대로 둡니다.")
         return
 
-    state = load_state()
+    state["schools"] = {e["key"]: e for e in results}
+    state["updated_at"] = now.isoformat()
     state["fingerprint"] = fp
+
+    ballet_total = sum(
+        t["applicants"]
+        for e in results
+        for t in e["tracks"]
+        if t["track"] == "발레"
+    )
+    history = state.get("history", [])
+    if not history or history[-1].get("ballet_total") != ballet_total:
+        history.append({"at": now.isoformat(), "ballet_total": ballet_total})
+        state["history"] = history[-200:]
+
     save_state(state)
 
     html = render(results, now)
