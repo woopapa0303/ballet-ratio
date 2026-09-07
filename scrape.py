@@ -436,7 +436,6 @@ def render(results, now):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="refresh" content="300">
 <title>발레 경쟁률 보드</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩰</text></svg>">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap">
@@ -593,8 +592,37 @@ def render(results, now):
 """
 
 
+def fingerprint(results):
+    """의미 있는 데이터(대학별 모집/지원/기준시각)만 뽑은 지문.
+
+    확인 시각처럼 매번 달라지는 값은 제외한다. 지문이 같으면 파일을 새로 쓰지
+    않아 불필요한 커밋과 페이지 재배포가 생기지 않는다.
+    """
+    return [
+        [
+            e["key"],
+            e["stamp"],
+            [[t["label"], t["capacity"], t["applicants"]] for t in e["tracks"]],
+        ]
+        for e in results
+    ]
+
+
 def main():
+    state_before = load_state()
+    prev_fp = state_before.get("fingerprint")
+
     results, now = collect()
+    fp = fingerprint(results)
+
+    if fp == prev_fp and os.path.exists(HTML_PATH):
+        print(f"변경 없음 ({now:%H:%M} KST) — 파일을 갱신하지 않습니다.")
+        return
+
+    state = load_state()
+    state["fingerprint"] = fp
+    save_state(state)
+
     html = render(results, now)
     with open(HTML_PATH, "w", encoding="utf-8") as f:
         f.write(html)
