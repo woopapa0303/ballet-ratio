@@ -131,8 +131,8 @@
     <div class="eyebrow">2027학년도 수시 · 자동 갱신</div>
     <h1>무용학부(발레) 경쟁률 보드</h1>
     <p class="sub">관심대학 7개교의 무용 <b>발레</b> 모집단위 지원현황입니다.
-      각 대학이 공개하는 실시간 경쟁률 페이지를 <b>10분마다</b> 자동으로 읽어옵니다.
-      이 페이지는 5분마다 스스로 새로고침됩니다.</p>
+      대학 원본이 <b>매시 정각</b>에 갱신되면 이 보드가 <b>1~2분 안에</b> 반영하고,
+      보고 계신 화면도 새로고침 없이 저절로 바뀝니다.</p>
   </header>
 
   <div class="strip">
@@ -153,7 +153,7 @@
         <span class="pill live">접수중</span>
       </div>
       <div class="headline">
-        <div class="track">공연예술학부 무용전공[발레]<br><span class="nums">모집 12 · 지원 29 <span class="delta up">▲ 1</span></span></div>
+        <div class="track">공연예술학부 무용전공[발레]<br><span class="nums">모집 12 · 지원 29 <span class="delta flat">–</span></span></div>
         <div class="ratio">2.42<span> : 1</span></div>
       </div>
       <div class="tracks">
@@ -274,11 +274,11 @@
   <div class="note">
     <h3>참고</h3>
     <ul>
-      <li>수치는 각 대학이 공개 운영하는 지원현황 페이지를 그대로 옮긴 것입니다. 대학 원본은 보통 1시간 단위로 갱신되며, 이 보드는 10분마다 원본을 다시 확인합니다.</li>
+      <li>수치는 각 대학이 공개 운영하는 지원현황 페이지를 그대로 옮긴 것입니다. 대학 원본은 매시 정각에 갱신되며, 이 보드는 정각 직후 20초 간격으로 확인합니다.</li>
       <li>▲▼ 표시는 직전 확인 시점 대비 지원자 증감입니다.</li>
       <li>최종 경쟁률이 아니며 접수 마감(2026.09.11 금 18:00) 전까지 계속 바뀝니다. 정확한 정보는 각 대학 홈페이지에서 확인하세요.</li>
       <li>이 화면은 새 숫자가 올라오면 <b>자동으로 다시 불러옵니다</b>. 직접 새로고침하지 않으셔도 됩니다.</li>
-      <li>마지막 반영: 2026.09.08 08:00 (KST)</li>
+      <li>마지막 반영: 2026.09.08 08:10 (KST)</li>
     </ul>
   </div>
 
@@ -291,7 +291,7 @@
   // (쿼리스트링·no-store 모두 무시된다). 그래서 캐시가 없는 raw 주소에서 직접 읽고,
   // 바뀐 내용만 화면에 갈아끼운다. 페이지를 다시 불러오지 않으므로 스크롤도 유지된다.
   var RAW = "https://raw.githubusercontent.com/woopapa0303/ballet-ratio/main/";
-  var CURRENT = "2026-09-08T08:00:17.825131+09:00";
+  var CURRENT = "2026-09-08T08:10:37.528434+09:00";
   var checking = false;
 
   function showToast() {
