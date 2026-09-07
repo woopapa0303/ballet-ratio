@@ -14,26 +14,26 @@
           "capacity": 12,
           "applicants": 23,
           "ratio": 1.92,
-          "delta": 3
+          "delta": 0
         },
         {
           "track": "한국무용",
           "label": "공연예술학부 무용전공[한국무용]",
           "capacity": 7,
-          "applicants": 15,
-          "ratio": 2.14,
+          "applicants": 16,
+          "ratio": 2.29,
           "delta": 1
         },
         {
           "track": "현대무용",
           "label": "공연예술학부 무용전공[현대무용]",
           "capacity": 8,
-          "applicants": 10,
-          "ratio": 1.25,
+          "applicants": 11,
+          "ratio": 1.38,
           "delta": 1
         }
       ],
-      "stamp": "09.07 22:00",
+      "stamp": "09.07 23:00",
       "stale": false,
       "status": "live"
     },
@@ -49,28 +49,28 @@
           "track": "한국무용",
           "label": "무용전공(한국무용)",
           "capacity": 12,
-          "applicants": 15,
-          "ratio": 1.25,
-          "delta": 1
+          "applicants": 19,
+          "ratio": 1.58,
+          "delta": 4
         },
         {
           "track": "현대무용",
           "label": "무용전공(현대무용)",
           "capacity": 12,
-          "applicants": 14,
-          "ratio": 1.17,
-          "delta": 1
+          "applicants": 18,
+          "ratio": 1.5,
+          "delta": 4
         },
         {
           "track": "발레",
           "label": "무용전공(발레)",
           "capacity": 12,
-          "applicants": 30,
-          "ratio": 2.5,
-          "delta": 3
+          "applicants": 32,
+          "ratio": 2.67,
+          "delta": 2
         }
       ],
-      "stamp": "09.07 22:00",
+      "stamp": "09.07 23:00",
       "stale": false,
       "status": "live"
     },
@@ -86,28 +86,28 @@
           "track": "한국무용",
           "label": "무용예술전공(한국무용)",
           "capacity": 9,
-          "applicants": 14,
-          "ratio": 1.56,
-          "delta": 1
+          "applicants": 19,
+          "ratio": 2.11,
+          "delta": 5
         },
         {
           "track": "현대무용",
           "label": "무용예술전공(현대무용)",
           "capacity": 9,
-          "applicants": 16,
-          "ratio": 1.78,
-          "delta": 0
+          "applicants": 18,
+          "ratio": 2.0,
+          "delta": 2
         },
         {
           "track": "발레",
           "label": "무용예술전공(발레)",
           "capacity": 10,
-          "applicants": 17,
-          "ratio": 1.7,
+          "applicants": 18,
+          "ratio": 1.8,
           "delta": 1
         }
       ],
-      "stamp": "09.07 22:00",
+      "stamp": "09.07 23:00",
       "stale": false,
       "status": "live"
     },
@@ -196,13 +196,17 @@
     {
       "at": "2026-09-07T22:01:03.529986+09:00",
       "ballet_total": 70
+    },
+    {
+      "at": "2026-09-07T23:01:10.004641+09:00",
+      "ballet_total": 73
     }
   ],
-  "updated_at": "2026-09-07T22:01:03.529986+09:00",
+  "updated_at": "2026-09-07T23:01:10.004641+09:00",
   "fingerprint": [
     [
       "kookmin",
-      "09.07 22:00",
+      "09.07 23:00",
       [
         [
           "공연예술학부 무용전공[발레]",
@@ -212,54 +216,54 @@
         [
           "공연예술학부 무용전공[한국무용]",
           7,
-          15
+          16
         ],
         [
           "공연예술학부 무용전공[현대무용]",
           8,
-          10
+          11
         ]
       ]
     ],
     [
       "dongduk",
-      "09.07 22:00",
+      "09.07 23:00",
       [
         [
           "무용전공(한국무용)",
           12,
-          15
+          19
         ],
         [
           "무용전공(현대무용)",
           12,
-          14
+          18
         ],
         [
           "무용전공(발레)",
           12,
-          30
+          32
         ]
       ]
     ],
     [
       "sangmyung",
-      "09.07 22:00",
+      "09.07 23:00",
       [
         [
           "무용예술전공(한국무용)",
           9,
-          14
+          19
         ],
         [
           "무용예술전공(현대무용)",
           9,
-          16
+          18
         ],
         [
           "무용예술전공(발레)",
           10,
-          17
+          18
         ]
       ]
     ],
