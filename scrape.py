@@ -83,6 +83,11 @@ SCHOOLS = [
 TRACK_RE = re.compile(r"발레|한국무용|현대무용")
 RATIO_RE = re.compile(r"^\d+(?:\.\d+)?\s*:\s*1$")
 STAMP_RE = re.compile(r"(\d{4})년\s*(\d{2})월\s*(\d{2})일\s*(\d{2})시\s*(\d{2})분\s*기준")
+STAMP_RE2 = re.compile(r"(\d{4})-(\d{2})-(\d{2})\s*(오전|오후)\s*(\d{1,2}):(\d{2})")
+
+# 진학어플라이 접수 대학은 이 목록에서 경쟁률 페이지 주소를 자동으로 찾는다.
+JINHAK_LIST_URL = "https://apply.jinhakapply.com/SmartRatio"
+JINHAK_RATE_RE = re.compile(r'(?is)<a[^>]*class="rate"[^>]*>')
 
 STATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data.json")
 HTML_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
@@ -180,12 +185,46 @@ def parse_rows(html):
 
 
 def parse_stamp(html):
-    """'2026년 09월 07일 14시 00분 기준' → '09.07 14:00'."""
-    m = STAMP_RE.search(strip_tags(html))
-    if not m:
-        return None
-    _, mo, d, h, mi = m.groups()
-    return f"{mo}.{d} {h}:{mi}"
+    """대학별 기준시각 표기를 '09.07 14:00' 형태로 정규화."""
+    text = strip_tags(html)
+
+    m = STAMP_RE.search(text)          # 유웨이: 2026년 09월 07일 14시 00분 기준
+    if m:
+        _, mo, d, h, mi = m.groups()
+        return f"{mo}.{d} {h}:{mi}"
+
+    m = STAMP_RE2.search(text)         # 진학어플라이: 2026-09-07 오후 2:50
+    if m:
+        _, mo, d, ampm, h, mi = m.groups()
+        h = int(h) % 12
+        if ampm == "오후":
+            h += 12
+        return f"{mo}.{d} {h:02d}:{mi}"
+
+    return None
+
+
+def discover_jinhak_urls():
+    """진학어플라이 스마트경쟁률 목록에서 {학교명: 경쟁률페이지 주소} 를 만든다.
+
+    접수 전 대학은 링크(data-link)가 없으므로 목록에 나타나지 않는다.
+    """
+    try:
+        html = fetch(JINHAK_LIST_URL)
+    except Exception as exc:
+        print(f"[warn] 진학어플라이 목록을 읽지 못했습니다: {exc}", file=sys.stderr)
+        return {}
+
+    found = {}
+    for tag in JINHAK_RATE_RE.findall(html):
+        link = re.search(r'data-link="([^"]+)"', tag)
+        label = re.search(r'data-label="([^"]*)"', tag)
+        if not (link and label):
+            continue
+        name = label.group(1).split(" ")[0].strip()
+        if name:
+            found.setdefault(name, link.group(1))
+    return found
 
 
 # ---------------------------------------------------------------- state
