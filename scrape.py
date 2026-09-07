@@ -181,7 +181,16 @@ def parse_rows(html):
                 "ratio": float(ratio.split(":")[0].strip()),
             }
         )
-    return out
+
+    # 같은 행이 요약표와 상세표에 중복으로 실리는 경우가 있어 중복 제거
+    seen, unique = set(), []
+    for row in out:
+        sig = (row["label"], row["capacity"], row["applicants"], row["ratio"])
+        if sig in seen:
+            continue
+        seen.add(sig)
+        unique.append(row)
+    return unique
 
 
 def parse_stamp(html):
@@ -249,6 +258,12 @@ def collect():
     now = datetime.now(KST)
     results = []
 
+    # 접수가 시작된 진학어플라이 대학의 경쟁률 주소를 자동으로 찾는다.
+    need_discovery = any(s["url"] is None for s in SCHOOLS)
+    jinhak = discover_jinhak_urls() if need_discovery else {}
+    if jinhak:
+        print(f"진학어플라이 목록에서 {len(jinhak)}개 대학 경쟁률 주소 확인", file=sys.stderr)
+
     for school in SCHOOLS:
         prev = state["schools"].get(school["key"], {})
         entry = dict(school)
@@ -257,13 +272,16 @@ def collect():
         entry["stale"] = False
         entry["status"] = "pending"
 
-        if not school["url"]:
+        url = school["url"] or jinhak.get(school["name"])
+        entry["url"] = url
+
+        if not url:
             # 아직 경쟁률 페이지가 열리지 않은 대학
             results.append(entry)
             continue
 
         try:
-            html = fetch(school["url"])
+            html = fetch(url)
             tracks = parse_rows(html)
             stamp = parse_stamp(html)
             if not tracks:
@@ -279,10 +297,10 @@ def collect():
                 entry["status"] = "live"
                 entry["stale"] = True
 
-        # 직전 값 대비 증감 (발레 기준)
-        prev_by_track = {t["track"]: t for t in prev.get("tracks", [])}
+        # 직전 확인 시점 대비 지원자 증감
+        prev_by_label = {t["label"]: t for t in prev.get("tracks", [])}
         for t in entry["tracks"]:
-            before = prev_by_track.get(t["track"])
+            before = prev_by_label.get(t["label"])
             t["delta"] = (
                 t["applicants"] - before["applicants"] if before else 0
             )
