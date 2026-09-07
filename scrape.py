@@ -531,6 +531,13 @@ def render(results, now):
   .note li{{margin-bottom:5px}}
   .note a{{color:var(--muted)}}
 
+  #toast{{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);
+    background:var(--good-dim);color:var(--good);border:1px solid var(--good);
+    padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;
+    opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}}
+  #toast.show{{opacity:1;transform:translate(-50%,0)}}
+  @media (prefers-reduced-motion:reduce){{#toast{{transition:none}}}}
+
   @media (max-width:640px){{
     .strip{{grid-template-columns:repeat(2,1fr)}}
     .headline .ratio{{font-size:22px}}
@@ -576,26 +583,52 @@ def render(results, now):
 
 </div>
 
+<div id="toast">방금 갱신되었습니다</div>
+
 <script>
-  // 대학 원본은 매시 정각에 갱신된다. 30초마다 데이터 파일만 가볍게 확인하고,
-  // 새 값이 올라왔을 때만 화면을 다시 불러온다.
-  // (주소에 시각을 붙여 CDN 캐시를 우회한다 — 그래야 즉시 반영된다.)
+  // GitHub Pages 는 파일을 10분간 CDN 에 캐시해서, 이 주소로는 새 값을 제때 못 받는다
+  // (쿼리스트링·no-store 모두 무시된다). 그래서 캐시가 없는 raw 주소에서 직접 읽고,
+  // 바뀐 내용만 화면에 갈아끼운다. 페이지를 다시 불러오지 않으므로 스크롤도 유지된다.
+  var RAW = "https://raw.githubusercontent.com/woopapa0303/ballet-ratio/main/";
   var CURRENT = "{now.isoformat()}";
+  var checking = false;
+
+  function showToast() {{
+    var el = document.getElementById("toast");
+    if (!el) return;
+    el.classList.add("show");
+    setTimeout(function () {{ el.classList.remove("show"); }}, 4000);
+  }}
+
   async function checkForUpdate() {{
+    if (checking || document.hidden) return;
+    checking = true;
     try {{
-      var res = await fetch("data.json?t=" + Date.now(), {{ cache: "no-store" }});
+      var res = await fetch(RAW + "data.json?t=" + Date.now(), {{ cache: "no-store" }});
       if (!res.ok) return;
       var data = await res.json();
-      if (data.updated_at && data.updated_at !== CURRENT) {{
-        location.replace(location.pathname + "?v=" + Date.now());
-      }}
+      if (!data.updated_at || data.updated_at === CURRENT) return;
+
+      var htmlRes = await fetch(RAW + "index.html?t=" + Date.now(), {{ cache: "no-store" }});
+      if (!htmlRes.ok) return;
+      var doc = new DOMParser().parseFromString(await htmlRes.text(), "text/html");
+      if (!doc.body) return;
+
+      var toast = document.getElementById("toast");
+      document.body.replaceWith(document.importNode(doc.body, true));
+      if (toast) document.body.appendChild(toast);   // 알림 요소는 유지
+      CURRENT = data.updated_at;
+      showToast();
     }} catch (e) {{
-      /* 일시적인 네트워크 오류는 조용히 넘어가고 다음 회차에 다시 확인한다 */
+      /* 일시적인 네트워크 오류는 조용히 넘기고 다음 회차에 다시 확인한다 */
+    }} finally {{
+      checking = false;
     }}
   }}
+
   setInterval(checkForUpdate, 30000);
   document.addEventListener("visibilitychange", function () {{
-    if (!document.hidden) checkForUpdate();   // 휴대폰에서 화면을 다시 켰을 때
+    if (!document.hidden) checkForUpdate();   // 휴대폰 화면을 다시 켰을 때 즉시 확인
   }});
 </script>
 </body>
