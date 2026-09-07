@@ -132,7 +132,7 @@
     <div class="stat"><div class="label">관심대학</div><div class="value">7개교</div></div>
     <div class="stat"><div class="label">접수중</div><div class="value good">3개교</div></div>
     <div class="stat"><div class="label">발레 전체 경쟁률</div><div class="value accent">2.50 : 1</div></div>
-    <div class="stat"><div class="label">대학 발표 기준</div><div class="value" style="font-size:15px">09.08 02:00</div></div>
+    <div class="stat"><div class="label">대학 발표 기준</div><div class="value" style="font-size:15px">09.08 03:00</div></div>
   </div>
 
   <div class="section-title"><h2>접수중 · 발레 경쟁률 공개</h2><span class="count">3</span></div>
@@ -160,7 +160,7 @@
         </div>
       </div>
       <div class="card-foot">
-        <span>09.08 02:00 기준 </span>
+        <span>09.08 03:00 기준 </span>
         <a href="http://ratio.uwayapply.com/Sl5KVyVNOWFhOUpmJSY6Jko3ZlRm" target="_blank" rel="noopener">대학 원문 ↗</a>
       </div>
     </article>
@@ -187,7 +187,7 @@
         </div>
       </div>
       <div class="card-foot">
-        <span>09.08 02:00 기준 </span>
+        <span>09.08 03:00 기준 </span>
         <a href="http://ratio.uwayapply.com/Sl5KOTpWcldhVkpmJSY6Jko3ZlRm" target="_blank" rel="noopener">대학 원문 ↗</a>
       </div>
     </article>
@@ -214,7 +214,7 @@
         </div>
       </div>
       <div class="card-foot">
-        <span>09.08 02:00 기준 </span>
+        <span>09.08 03:00 기준 </span>
         <a href="http://ratio.uwayapply.com/Sl5KOk0mSmYlJjomSjdmVGY=" target="_blank" rel="noopener">대학 원문 ↗</a>
       </div>
     </article>
@@ -271,7 +271,7 @@
       <li>▲▼ 표시는 직전 확인 시점 대비 지원자 증감입니다.</li>
       <li>최종 경쟁률이 아니며 접수 마감(2026.09.11 금 18:00) 전까지 계속 바뀝니다. 정확한 정보는 각 대학 홈페이지에서 확인하세요.</li>
       <li>이 화면은 새 숫자가 올라오면 <b>자동으로 다시 불러옵니다</b>. 직접 새로고침하지 않으셔도 됩니다.</li>
-      <li>마지막 반영: 2026.09.08 02:01 (KST)</li>
+      <li>마지막 반영: 2026.09.08 03:01 (KST)</li>
     </ul>
   </div>
 
@@ -281,7 +281,7 @@
   // 대학 원본은 매시 정각에 갱신된다. 30초마다 데이터 파일만 가볍게 확인하고,
   // 새 값이 올라왔을 때만 화면을 다시 불러온다.
   // (주소에 시각을 붙여 CDN 캐시를 우회한다 — 그래야 즉시 반영된다.)
-  var CURRENT = "2026-09-08T02:01:04.896501+09:00";
+  var CURRENT = "2026-09-08T03:01:10.426227+09:00";
   async function checkForUpdate() {
     try {
       var res = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
