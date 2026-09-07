@@ -1,0 +1,53 @@
+name: 경쟁률 자동 갱신
+
+on:
+  schedule:
+    # 10분마다 (GitHub 부하에 따라 몇 분 지연될 수 있음)
+    - cron: "*/10 * * * *"
+  workflow_dispatch:        # 수동 실행 버튼
+  push:
+    branches: [main]
+    paths: ["scrape.py", ".github/workflows/update.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ratio-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 접수 기간 확인
+        id: window
+        run: |
+          # 2026-09-12 00:00 KST(=09-11 15:00 UTC) 이후에는 갱신 중단
+          now=$(date -u +%s)
+          end=$(date -u -d "2026-09-11 15:00:00" +%s)
+          if [ "$now" -gt "$end" ]; then
+            echo "접수 기간이 종료되어 갱신을 건너뜁니다."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 경쟁률 수집 및 페이지 생성
+        if: steps.window.outputs.skip == 'false'
+        run: python3 scrape.py
+
+      - name: 변경사항 커밋
+        if: steps.window.outputs.skip == 'false'
+        run: |
+          git config user.name "ratio-bot"
+          git config user.email "actions@github.com"
+          git add index.html data.json
+          if git diff --staged --quiet; then
+            echo "변경 없음"
+          else
+            git commit -m "경쟁률 갱신 $(TZ=Asia/Seoul date '+%m.%d %H:%M')"
+            git push
+          fi
