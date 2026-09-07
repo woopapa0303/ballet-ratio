@@ -359,22 +359,38 @@ def render_card(entry):
       <p class="pending-body">접수기간 <b>{esc(entry['period'])}</b>. 접수가 시작되면 이 자리에 발레 경쟁률이 자동으로 채워집니다.</p>
     </article>"""
 
-    ballet = next((t for t in entry["tracks"] if t["track"] == "발레"), None)
+    ballets = [t for t in entry["tracks"] if t["track"] == "발레"]
     others = [t for t in entry["tracks"] if t["track"] != "발레"]
 
-    if ballet:
+    if len(ballets) == 1:
+        b = ballets[0]
         headline = f"""
       <div class="headline">
-        <div class="track">{esc(ballet['label'])}<br><span class="nums">모집 {ballet['capacity']} · 지원 {ballet['applicants']} {render_delta(ballet['delta'])}</span></div>
-        <div class="ratio">{ballet['ratio']:.2f}<span> : 1</span></div>
+        <div class="track">{esc(b['label'])}<br><span class="nums">모집 {b['capacity']} · 지원 {b['applicants']} {render_delta(b['delta'])}</span></div>
+        <div class="ratio">{b['ratio']:.2f}<span> : 1</span></div>
       </div>"""
+    elif ballets:
+        cap = sum(t["capacity"] for t in ballets)
+        app = sum(t["applicants"] for t in ballets)
+        dlt = sum(t["delta"] for t in ballets)
+        agg = app / cap if cap else 0
+        headline = f"""
+      <div class="headline">
+        <div class="track">발레 <span class="nums">({len(ballets)}개 전형 합계)</span><br><span class="nums">모집 {cap} · 지원 {app} {render_delta(dlt)}</span></div>
+        <div class="ratio">{agg:.2f}<span> : 1</span></div>
+      </div>"""
+        others = ballets + others
     else:
         headline = '<div class="headline"><div class="track">발레 모집단위를 찾지 못했습니다</div></div>'
+
+    counts = {}
+    for t in others:
+        counts[t["track"]] = counts.get(t["track"], 0) + 1
 
     rows = "".join(
         f"""
         <div class="track-row">
-          <span class="t-name">{esc(t['track'])}</span>
+          <span class="t-name">{esc(t['label'] if counts[t['track']] > 1 else t['track'])}</span>
           <span class="t-nums"><span class="n">{t['capacity']}명 모집 · {t['applicants']}명 지원</span><span class="r">{t['ratio']:.2f} : 1</span></span>
         </div>"""
         for t in others
