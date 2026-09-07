@@ -1,13 +1,15 @@
 name: 경쟁률 자동 갱신
 
-# GitHub의 schedule(cron)은 무료 저장소에서 자주 지연·생략된다.
-# 그래서 한 번 실행되면 약 5시간 동안 스스로 반복 확인하는 구조로 두고,
-# cron 은 그 루프를 주기적으로 되살리는 용도로만 쓴다.
-#
-# 대학 원본이 매시 정각에 갱신되므로, 정각 직후에는 20초 간격으로 확인한다.
+# 구조
+#  - 한 번 실행되면 약 5시간 30분 동안 스스로 반복 확인한다.
+#  - 수명이 끝나기 직전에 스스로 다음 실행을 띄운다(릴레이). GITHUB_TOKEN 으로 만든
+#    이벤트는 보통 새 실행을 만들지 않지만 workflow_dispatch 는 예외라 가능하다.
+#  - cron 은 릴레이가 끊겼을 때를 대비한 예비 수단일 뿐이다. 정각은 값이 바뀌는
+#    시점이라 피해서 매시 30분에 둔다.
+#  - 대학 원본이 매시 정각에 갱신되므로, 정각 직후에는 20초 간격으로 확인한다.
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "30 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -15,35 +17,42 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: ratio-update
   cancel-in-progress: true
 
+env:
+  # 2026-09-12 00:00 KST = 2026-09-11 15:00 UTC
+  ADMISSION_END_UTC: "2026-09-11 15:00:00"
+
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 345
     steps:
       - uses: actions/checkout@v4
 
       - name: 반복 수집 (정각 직후 20초 간격)
+        id: loop
         run: |
           git config user.name "ratio-bot"
           git config user.email "actions@github.com"
 
-          # 2026-09-12 00:00 KST = 2026-09-11 15:00 UTC
-          ADMISSION_END=$(date -u -d "2026-09-11 15:00:00" +%s)
-          LOOP_END=$(( $(date -u +%s) + 5 * 3600 ))
+          ADMISSION_END=$(date -u -d "$ADMISSION_END_UTC" +%s)
+          LOOP_END=$(( $(date -u +%s) + 19800 ))   # 5시간 30분
 
           while true; do
             NOW=$(date -u +%s)
             if [ "$NOW" -gt "$ADMISSION_END" ]; then
               echo "접수 기간이 종료되어 반복을 마칩니다."
+              echo "ended=admission" >> "$GITHUB_OUTPUT"
               break
             fi
             if [ "$NOW" -gt "$LOOP_END" ]; then
-              echo "이번 실행의 수명이 끝났습니다. 다음 실행이 이어받습니다."
+              echo "이번 실행의 수명이 끝났습니다. 다음 실행으로 넘깁니다."
+              echo "ended=lifetime" >> "$GITHUB_OUTPUT"
               break
             fi
 
@@ -57,13 +66,42 @@ jobs:
               echo "갱신 반영 $(TZ=Asia/Seoul date '+%H:%M:%S')"
             fi
 
-            # 정각 직후는 촘촘하게, 그 외에는 여유 있게 확인
             MIN=$(date -u +%-M)
             if [ "$MIN" -lt 6 ]; then
-              sleep 20
+              sleep 20            # 정각 직후: 촘촘하게
             elif [ "$MIN" -lt 12 ]; then
               sleep 60
             else
               sleep 180
             fi
           done
+
+      # 취소된 경우는 넘기지 않는다(취소시킨 쪽이 이미 새 실행이므로).
+      - name: 다음 실행으로 릴레이
+        if: ${{ !cancelled() && steps.loop.outputs.ended != 'admission' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          NOW=$(date -u +%s)
+          ADMISSION_END=$(date -u -d "$ADMISSION_END_UTC" +%s)
+          if [ "$NOW" -gt "$ADMISSION_END" ]; then
+            echo "접수 기간 종료 — 릴레이하지 않습니다."
+            exit 0
+          fi
+
+          for attempt in 1 2 3; do
+            CODE=$(curl -sS -o /dev/null -w "%{http_code}" -X POST \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/$REPO/actions/workflows/update.yml/dispatches" \
+              -d '{"ref":"main"}') || CODE=000
+            if [ "$CODE" = "204" ]; then
+              echo "다음 실행을 띄웠습니다."
+              exit 0
+            fi
+            echo "릴레이 실패(HTTP $CODE) — 재시도 $attempt"
+            sleep 10
+          done
+
+          echo "릴레이에 실패했습니다. 매시 30분 예약이 이어받습니다."
