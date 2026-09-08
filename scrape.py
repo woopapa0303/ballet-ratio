@@ -45,13 +45,13 @@ SCHOOLS = [
         "url": "http://ratio.uwayapply.com/Sl5KOk0mSmYlJjomSjdmVGY=",
         "period": "09.07 ~ 09.11 18:00",
     },
-    # 접수 시작일이 09.08 인 대학들 — 경쟁률 페이지가 열리면 url 을 채운다.
+    # 접수 시작일이 09.08 인 대학들 (경쟁률 주소 확인 완료)
     {
         "key": "khu",
         "name": "경희대학교",
         "campus": "서울·경기",
         "dept": "무용학부",
-        "url": None,
+        "url": "https://ratio.uwayapply.com/Sl5KOnw5SmYlJjomSjdmVGY=",
         "period": "09.08 ~ 09.11 18:00",
     },
     {
@@ -59,7 +59,7 @@ SCHOOLS = [
         "name": "중앙대학교",
         "campus": "서울",
         "dept": "무용예술전공",
-        "url": None,
+        "url": "https://ratio.uwayapply.com/Sl5KOjhMSmYlJjomSjdmVGY=",
         "period": "09.08 ~ 09.11 18:00",
     },
     {
@@ -67,7 +67,7 @@ SCHOOLS = [
         "name": "단국대학교",
         "campus": "경기·충남",
         "dept": "무용과",
-        "url": None,
+        "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html",
         "period": "09.08 ~ 09.11 18:00",
     },
     {
@@ -75,7 +75,7 @@ SCHOOLS = [
         "name": "성신여자대학교",
         "campus": "서울",
         "dept": "무용예술학과",
-        "url": None,
+        "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html",
         "period": "09.08 ~ 09.11 18:00",
     },
 ]
