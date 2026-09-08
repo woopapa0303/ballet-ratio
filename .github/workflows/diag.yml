@@ -1,0 +1,29 @@
+name: 진단
+on:
+  workflow_dispatch:
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: 접근 가능 여부 확인
+        run: |
+          python3 - <<'PY'
+          import scrape
+          targets = [
+            ("단국대", "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html"),
+            ("성신여대", "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html"),
+            ("경희대", "https://ratio.uwayapply.com/Sl5KOnw5SmYlJjomSjdmVGY="),
+            ("진학목록", "https://apply.jinhakapply.com/SmartRatio"),
+          ]
+          for name, url in targets:
+              try:
+                  html = scrape.fetch(url)
+                  rows = scrape.parse_rows(html)
+                  print(f"{name}: 성공 bytes={len(html)} 무용행={len(rows)} 기준={scrape.parse_stamp(html)}")
+                  for r in rows[:4]:
+                      print("     ", r["track"], r["label"], r["capacity"], r["applicants"])
+              except Exception as e:
+                  print(f"{name}: 실패 {type(e).__name__}: {e}")
+          PY
