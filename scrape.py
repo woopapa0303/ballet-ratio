@@ -87,7 +87,7 @@ STAMP_RE2 = re.compile(r"(\d{4})-(\d{2})-(\d{2})\s*(오전|오후)\s*(\d{1,2}):(
 
 # 진학어플라이 접수 대학은 이 목록에서 경쟁률 페이지 주소를 자동으로 찾는다.
 JINHAK_LIST_URL = "https://apply.jinhakapply.com/SmartRatio"
-JINHAK_RATE_RE = re.compile(r'(?is)<a[^>]*class="rate"[^>]*>')
+JINHAK_ROW_RE = re.compile(r'\["[^"\[\]]+",[^\[\]]*\]')
 
 STATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data.json")
 HTML_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
@@ -157,6 +157,10 @@ def parse_rows(html):
         # 소계/합계 행은 트랙 행이 아니다.
         if any(k in name for k in ("소계", "합계", "총계")):
             continue
+        # '실기우수자전형(한국무용·현대무용·발레)' 처럼 여러 전공을 묶은 전형 행은
+        # 개별 트랙이 아니므로 제외한다(발레로 잘못 집계되는 것을 막는다).
+        if len(set(TRACK_RE.findall(name))) > 1:
+            continue
 
         ratio = cells[-1]
         if not RATIO_RE.match(ratio):
@@ -216,7 +220,10 @@ def parse_stamp(html):
 def discover_jinhak_urls():
     """진학어플라이 스마트경쟁률 목록에서 {학교명: 경쟁률페이지 주소} 를 만든다.
 
-    접수 전 대학은 링크(data-link)가 없으므로 목록에 나타나지 않는다.
+    화면의 링크는 자바스크립트가 그려내므로 HTML 에는 <a> 태그가 없다.
+    대신 본문에 대학별 정보가 JSON 배열로 박혀 있어 그것을 읽는다.
+    배열 모양: ["학교명", 4, "수시", "수시모집", 지역, 설립, 시작일시, 종료일시,
+               안내주소, 상태, "경쟁률 페이지 주소", ...]
     """
     try:
         html = fetch(JINHAK_LIST_URL)
@@ -224,15 +231,33 @@ def discover_jinhak_urls():
         print(f"[warn] 진학어플라이 목록을 읽지 못했습니다: {exc}", file=sys.stderr)
         return {}
 
+    html = html.replace("&quot;", '"')
     found = {}
-    for tag in JINHAK_RATE_RE.findall(html):
-        link = re.search(r'data-link="([^"]+)"', tag)
-        label = re.search(r'data-label="([^"]*)"', tag)
-        if not (link and label):
+    for raw in JINHAK_ROW_RE.findall(html):
+        try:
+            row = json.loads(raw)
+        except ValueError:
             continue
-        name = label.group(1).split(" ")[0].strip()
-        if name:
-            found.setdefault(name, link.group(1))
+        if not row or not isinstance(row[0], str):
+            continue
+
+        name = row[0].strip()
+        url = None
+        if len(row) > 10 and isinstance(row[10], str) and row[10].startswith("http"):
+            url = row[10]
+        else:  # 배열 모양이 달라졌을 때를 위한 대비
+            url = next(
+                (
+                    v
+                    for v in row
+                    if isinstance(v, str)
+                    and v.startswith("http")
+                    and re.search(r"ratio|rate", v, re.I)
+                ),
+                None,
+            )
+        if name and url:
+            found.setdefault(name, url)
     return found
 
 
