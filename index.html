@@ -111,6 +111,19 @@
   .note li{margin-bottom:5px}
   .note a{color:var(--muted)}
 
+  .pill.manual{background:#3a2f1c;color:var(--accent)}
+  .pill.manual::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .card.manual{border-color:#4a3a24}
+  .go{display:block;text-align:center;background:var(--accent-dim);color:var(--accent);
+    border:1px solid var(--accent);border-radius:9px;padding:11px;font-size:13.5px;
+    font-weight:600;text-decoration:none;margin-top:auto}
+  .go:hover{background:var(--accent);color:#14181d}
+  #share{margin-left:auto;background:transparent;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:12px;
+    font-family:inherit;cursor:pointer}
+  #share:hover{color:var(--accent);border-color:var(--accent)}
+  .section-title{width:100%}
+
   #toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);
     background:var(--good-dim);color:var(--good);border:1px solid var(--good);
     padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;
@@ -142,7 +155,9 @@
     <div class="stat"><div class="label">대학 발표 기준</div><div class="value" style="font-size:15px">09.08 12:00</div></div>
   </div>
 
-  <div class="section-title"><h2>접수중 · 발레 경쟁률 공개</h2><span class="count">5</span></div>
+  <div class="section-title"><h2>접수중 · 발레 경쟁률 공개</h2><span class="count">5</span>
+    <button id="share" type="button">요약 공유</button>
+  </div>
   <div class="grid">
     <article class="card live">
       <div class="card-head">
@@ -153,7 +168,7 @@
         <span class="pill live">접수중</span>
       </div>
       <div class="headline">
-        <div class="track">공연예술학부 무용전공[발레]<br><span class="nums">모집 12 · 지원 34 <span class="delta up">▲ 3</span></span></div>
+        <div class="track">공연예술학부 무용전공[발레]<br><span class="nums">모집 12 · 지원 34 <span class="delta flat">–</span></span></div>
         <div class="ratio">2.83<span> : 1</span></div>
       </div>
       <div class="tracks">
@@ -180,7 +195,7 @@
         <span class="pill live">접수중</span>
       </div>
       <div class="headline">
-        <div class="track">무용전공(발레)<br><span class="nums">모집 12 · 지원 48 <span class="delta up">▲ 2</span></span></div>
+        <div class="track">무용전공(발레)<br><span class="nums">모집 12 · 지원 48 <span class="delta flat">–</span></span></div>
         <div class="ratio">4.00<span> : 1</span></div>
       </div>
       <div class="tracks">
@@ -207,7 +222,7 @@
         <span class="pill live">접수중</span>
       </div>
       <div class="headline">
-        <div class="track">무용예술전공(발레)<br><span class="nums">모집 10 · 지원 21 <span class="delta up">▲ 2</span></span></div>
+        <div class="track">무용예술전공(발레)<br><span class="nums">모집 10 · 지원 21 <span class="delta flat">–</span></span></div>
         <div class="ratio">2.10<span> : 1</span></div>
       </div>
       <div class="tracks">
@@ -281,29 +296,36 @@
     </article>
   </div>
 
-  <div class="section-title"><h2>접수 예정</h2><span class="count">2</span></div>
+  <div class="section-title"><h2>대학 사이트에서 직접 확인</h2><span class="count">2</span></div>
   <div class="grid">
-    <article class="card pending">
+    <article class="card manual">
       <div class="card-head">
         <div>
           <h3>단국대학교<span class="campus"> · 경기·충남</span></h3>
-          <p class="dept">무용과</p>
+          <p class="dept">무용과 · 접수중</p>
         </div>
-        <span class="pill pending">접수예정</span>
+        <span class="pill manual">직접 확인</span>
       </div>
-      <p class="pending-body">접수기간 <b>09.08 ~ 09.11 18:00</b>. 접수가 시작되면 이 자리에 발레 경쟁률이 자동으로 채워집니다.</p>
+      <p class="pending-body">이 대학의 경쟁률 사이트는 외부 자동 조회를 막아 두어
+        숫자를 가져올 수 없습니다. 아래 버튼을 누르면 대학이 운영하는 실시간 경쟁률 화면이
+        그대로 열립니다.</p>
+      <a class="go" href="https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html" target="_blank" rel="noopener">경쟁률 바로 보기 ↗</a>
     </article>
-    <article class="card pending">
+    <article class="card manual">
       <div class="card-head">
         <div>
           <h3>성신여자대학교<span class="campus"> · 서울</span></h3>
-          <p class="dept">무용예술학과</p>
+          <p class="dept">무용예술학과 · 접수중</p>
         </div>
-        <span class="pill pending">접수예정</span>
+        <span class="pill manual">직접 확인</span>
       </div>
-      <p class="pending-body">접수기간 <b>09.08 ~ 09.11 18:00</b>. 접수가 시작되면 이 자리에 발레 경쟁률이 자동으로 채워집니다.</p>
+      <p class="pending-body">이 대학의 경쟁률 사이트는 외부 자동 조회를 막아 두어
+        숫자를 가져올 수 없습니다. 아래 버튼을 누르면 대학이 운영하는 실시간 경쟁률 화면이
+        그대로 열립니다.</p>
+      <a class="go" href="https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html" target="_blank" rel="noopener">경쟁률 바로 보기 ↗</a>
     </article>
   </div>
+
 
   <div class="note">
     <h3>참고</h3>
@@ -312,21 +334,51 @@
       <li>▲▼ 표시는 직전 확인 시점 대비 지원자 증감입니다.</li>
       <li>최종 경쟁률이 아니며 접수 마감(2026.09.11 금 18:00) 전까지 계속 바뀝니다. 정확한 정보는 각 대학 홈페이지에서 확인하세요.</li>
       <li>이 화면은 새 숫자가 올라오면 <b>자동으로 다시 불러옵니다</b>. 직접 새로고침하지 않으셔도 됩니다.</li>
-      <li>마지막 반영: 2026.09.08 12:01 (KST)</li>
+      <li>마지막 반영: 2026.09.08 12:57 (KST)</li>
     </ul>
   </div>
 
 </div>
 
 <div id="toast">방금 갱신되었습니다</div>
+<script type="application/json" id="summary-data">발레 경쟁률 (09.08 12:00 기준)
+국민대 모집 12명 지원 34명 2.83:1
+동덕여대 모집 12명 지원 48명 4.00:1
+상명대 모집 10명 지원 21명 2.10:1
+경희대 모집 15명 지원 0명 0.00:1
+중앙대 모집 11명 지원 0명 0.00:1
+단국대 직접 확인
+성신여대 직접 확인
+https://woopapa0303.github.io/ballet-ratio/</script>
 
 <script>
   // GitHub Pages 는 파일을 10분간 CDN 에 캐시해서, 이 주소로는 새 값을 제때 못 받는다
   // (쿼리스트링·no-store 모두 무시된다). 그래서 캐시가 없는 raw 주소에서 직접 읽고,
   // 바뀐 내용만 화면에 갈아끼운다. 페이지를 다시 불러오지 않으므로 스크롤도 유지된다.
   var RAW = "https://raw.githubusercontent.com/woopapa0303/ballet-ratio/main/";
-  var CURRENT = "2026-09-08T12:01:51.534660+09:00";
+  var CURRENT = "2026-09-08T12:57:11.594070+09:00";
   var checking = false;
+
+  // 카톡 등으로 보낼 짧은 요약. 휴대폰은 공유 시트가 뜨고, PC 는 클립보드로 복사된다.
+  var SUMMARY = "발레 경쟁률 (09.08 12:00 기준)\n국민대 모집 12명 지원 34명 2.83:1\n동덕여대 모집 12명 지원 48명 4.00:1\n상명대 모집 10명 지원 21명 2.10:1\n경희대 모집 15명 지원 0명 0.00:1\n중앙대 모집 11명 지원 0명 0.00:1\n단국대 직접 확인\n성신여대 직접 확인\nhttps://woopapa0303.github.io/ballet-ratio/";
+  function wireShare() {
+    var btn = document.getElementById("share");
+    if (!btn) return;
+    btn.onclick = async function () {
+      try {
+        if (navigator.share) {
+          await navigator.share({ text: SUMMARY });
+        } else {
+          await navigator.clipboard.writeText(SUMMARY);
+          btn.textContent = "복사됨";
+          setTimeout(function () { btn.textContent = "요약 공유"; }, 2500);
+        }
+      } catch (e) {
+        /* 사용자가 공유를 취소한 경우 등은 무시 */
+      }
+    };
+  }
+  wireShare();
 
   function showToast() {
     var el = document.getElementById("toast");
@@ -353,6 +405,8 @@
       document.body.replaceWith(document.importNode(doc.body, true));
       if (toast) document.body.appendChild(toast);   // 알림 요소는 유지
       CURRENT = data.updated_at;
+      SUMMARY = (doc.getElementById("summary-data") || {}).textContent || SUMMARY;
+      wireShare();
       showToast();
     } catch (e) {
       /* 일시적인 네트워크 오류는 조용히 넘기고 다음 회차에 다시 확인한다 */
