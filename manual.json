@@ -1,42 +1,46 @@
 {
- "dankook": {
-  "stamp": "09.08 17:20",
-  "collected_at": "2026-09-08T17:29:03+09:00",
-  "tracks": [
-   {
-    "track": "한국무용",
-    "label": "무용과(한국무용)",
-    "capacity": 16,
-    "applicants": 30,
-    "ratio": 1.88
-   },
-   {
-    "track": "발레",
-    "label": "무용과(발레)",
-    "capacity": 13,
-    "applicants": 35,
-    "ratio": 2.69
-   },
-   {
-    "track": "현대무용",
-    "label": "무용과(현대무용)",
-    "capacity": 12,
-    "applicants": 18,
-    "ratio": 1.5
-   }
-  ]
- },
- "sungshin": {
-  "stamp": "09.08 17:00",
-  "collected_at": "2026-09-08T17:29:03+09:00",
-  "tracks": [
-   {
-    "track": "발레",
-    "label": "무용예술학과(발레)",
-    "capacity": 8,
-    "applicants": 10,
-    "ratio": 1.25
-   }
-  ]
- }
+  "dankook": {
+    "stamp": "09.09 07:20",
+    "tracks": [
+      {
+        "track": "한국무용",
+        "label": "무용과(한국무용)",
+        "capacity": 16,
+        "applicants": 51,
+        "ratio": 3.19,
+        "delta": 0
+      },
+      {
+        "track": "발레",
+        "label": "무용과(발레)",
+        "capacity": 13,
+        "applicants": 55,
+        "ratio": 4.23,
+        "delta": 0
+      },
+      {
+        "track": "현대무용",
+        "label": "무용과(현대무용)",
+        "capacity": 12,
+        "applicants": 32,
+        "ratio": 2.67,
+        "delta": 0
+      }
+    ],
+    "collected_at": "2026-09-09T07:25:28.035+09:00"
+  },
+  "sungshin": {
+    "stamp": "09.08 17:00",
+    "tracks": [
+      {
+        "track": "발레",
+        "label": "무용예술학과(발레)",
+        "capacity": 8,
+        "applicants": 10,
+        "ratio": 1.25,
+        "delta": 0
+      }
+    ],
+    "collected_at": "2026-09-09T07:25:28.035+09:00"
+  }
 }
