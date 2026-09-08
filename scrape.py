@@ -828,6 +828,7 @@ def fingerprint(results):
         [
             e["key"],
             e["stamp"],
+            e.get("updates", ""),
             [[t["label"], t["capacity"], t["applicants"]] for t in e["tracks"]],
         ]
         for e in results
