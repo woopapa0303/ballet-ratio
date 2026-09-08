@@ -6,33 +6,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
-      - name: 우회 방법 시험
+      - name: 프록시 후보 시험
         run: |
           U="https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html"
-          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
-
-          echo "== 1) curl 브라우저 헤더"
-          curl -s -o /tmp/a.html -w "  HTTP %{http_code}\n" -A "$UA" "$U" || true
-
-          echo "== 2) curl + Referer"
-          curl -s -o /tmp/b.html -w "  HTTP %{http_code}\n" -A "$UA" \
-            -H "Referer: https://apply.jinhakapply.com/SmartRatio" \
-            -H "Accept: text/html,application/xhtml+xml" -H "Accept-Language: ko-KR,ko;q=0.9" "$U" || true
-
-          echo "== 3) curl --http1.1"
-          curl -s --http1.1 -o /tmp/c.html -w "  HTTP %{http_code}\n" -A "$UA" "$U" || true
-
-          echo "== 4) r.jina.ai 프록시"
-          curl -s -o /tmp/d.txt -w "  HTTP %{http_code}\n" "https://r.jina.ai/$U" || true
-
-          echo "== 5) allorigins 프록시"
-          curl -s -o /tmp/e.txt -w "  HTTP %{http_code}\n" "https://api.allorigins.win/raw?url=$U" || true
-
-          echo "== 발레 행 탐지"
-          for f in /tmp/a.html /tmp/b.html /tmp/c.html /tmp/d.txt /tmp/e.txt; do
-            if [ -s "$f" ]; then
-              echo "  $f: 크기 $(wc -c < $f) / 발레 $(grep -c 발레 $f 2>/dev/null || echo 0)회"
-            else
-              echo "  $f: 비어있음"
-            fi
-          done
+          E=$(printf %s "$U" | jq -sRr @uri)
+          try() {
+            name="$1"; url="$2"
+            code=$(curl -s -L --max-time 25 -o /tmp/out -w "%{http_code}" "$url" || echo 000)
+            size=$( [ -f /tmp/out ] && wc -c < /tmp/out || echo 0)
+            hits=$(grep -c 발레 /tmp/out 2>/dev/null || echo 0)
+            echo "RESULT $name http=$code size=$size ballet=$hits"
+          }
+          try codetabs   "https://api.codetabs.com/v1/proxy?quest=$E"
+          try corsproxy  "https://corsproxy.io/?$E"
+          try isomorphic "https://cors.isomorphic-git.org/$U"
+          try jina_http  "https://r.jina.ai/http://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html"
+          try wayback    "http://archive.org/wayback/available?url=addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html"
