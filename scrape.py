@@ -89,6 +89,9 @@ STAMP_RE2 = re.compile(r"(\d{4})-(\d{2})-(\d{2})\s*(오전|오후)\s*(\d{1,2}):(
 JINHAK_LIST_URL = "https://apply.jinhakapply.com/SmartRatio"
 JINHAK_ROW_RE = re.compile(r'\["[^"\[\]]+",[^\[\]]*\]')
 
+MANUAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual.json")
+MANUAL_FRESH_MIN = 90   # 이보다 오래된 PC 수집값은 "직접 확인" 으로 되돌린다
+
 STATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data.json")
 HTML_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
 
@@ -281,6 +284,24 @@ def match_jinhak(name, table):
 
 # ---------------------------------------------------------------- state
 
+def manual_age_min(entry, now):
+    """PC 수집값이 몇 분 전 것인지. 시각을 못 읽으면 None."""
+    try:
+        collected = datetime.fromisoformat(entry["collected_at"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    return (now - collected).total_seconds() / 60
+
+
+def load_manual():
+    """PC 에서 대신 수집해 올려둔 값(단국대·성신여대). 없으면 빈 값."""
+    try:
+        with open(MANUAL_PATH, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
 def load_state():
     try:
         with open(STATE_PATH, encoding="utf-8") as f:
@@ -300,6 +321,8 @@ def collect():
     state = load_state()
     now = datetime.now(KST)
     results = []
+
+    manual = load_manual()
 
     # 접수가 시작된 진학어플라이 대학의 경쟁률 주소를 자동으로 찾는다.
     need_discovery = any(s["url"] is None for s in SCHOOLS)
@@ -341,8 +364,20 @@ def collect():
                 entry["stale"] = True
             elif "403" in str(exc):
                 # jinhakapply 는 GitHub 서버 같은 데이터센터 IP 를 차단한다.
-                # 이런 대학은 자동 수집이 불가능하므로 바로가기 카드로 보여준다.
-                entry["status"] = "manual"
+                # 사용자 PC 가 대신 올려둔 값이 있으면 그것을 쓰고, 없거나 오래되면
+                # 바로가기 카드로 보여준다.
+                picked = manual.get(school["key"])
+                age = manual_age_min(picked, now) if picked else None
+                if picked and age is not None and age <= MANUAL_FRESH_MIN:
+                    entry["tracks"] = picked.get("tracks", [])
+                    entry["stamp"] = picked.get("stamp")
+                    entry["status"] = "live"
+                    entry["via_pc"] = True
+                    entry["age_min"] = age
+                else:
+                    entry["status"] = "manual"
+                    if picked:
+                        entry["last_stamp"] = picked.get("stamp")
 
         # 직전 확인 시점 대비 지원자 증감
         prev_by_label = {t["label"]: t for t in prev.get("tracks", [])}
@@ -391,8 +426,8 @@ def render_card(entry):
         <span class="pill manual">직접 확인</span>
       </div>
       <p class="pending-body">이 대학의 경쟁률 사이트는 외부 자동 조회를 막아 두어
-        숫자를 가져올 수 없습니다. 아래 버튼을 누르면 대학이 운영하는 실시간 경쟁률 화면이
-        그대로 열립니다.</p>
+        서버에서는 숫자를 가져올 수 없습니다.{f" 마지막으로 받아둔 값은 {esc(entry['last_stamp'])} 기준입니다." if entry.get('last_stamp') else ''}
+        아래 버튼을 누르면 대학이 운영하는 실시간 경쟁률 화면이 그대로 열립니다.</p>
       <a class="go" href="{esc(entry['url'])}" target="_blank" rel="noopener">경쟁률 바로 보기 ↗</a>
     </article>"""
 
@@ -460,7 +495,7 @@ def render_card(entry):
       <div class="tracks">{rows}
       </div>
       <div class="card-foot">
-        <span>{esc(entry['stamp'] or '')} 기준 {stale}</span>
+        <span>{esc(entry['stamp'] or '')} 기준 {stale}{' · PC 수집' if entry.get('via_pc') else ''}</span>
         <a href="{esc(entry['url'])}" target="_blank" rel="noopener">대학 원문 ↗</a>
       </div>
     </article>"""
