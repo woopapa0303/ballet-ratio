@@ -198,11 +198,37 @@
       "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html",
       "updates": "원본 5분 단위 · 이 보드는 매시 수집",
       "period": "09.08 ~ 09.11 18:00",
-      "tracks": [],
-      "stamp": null,
+      "tracks": [
+        {
+          "track": "한국무용",
+          "label": "무용과(한국무용)",
+          "capacity": 16,
+          "applicants": 51,
+          "ratio": 3.19,
+          "delta": 0
+        },
+        {
+          "track": "발레",
+          "label": "무용과(발레)",
+          "capacity": 13,
+          "applicants": 55,
+          "ratio": 4.23,
+          "delta": 0
+        },
+        {
+          "track": "현대무용",
+          "label": "무용과(현대무용)",
+          "capacity": 12,
+          "applicants": 32,
+          "ratio": 2.67,
+          "delta": 0
+        }
+      ],
+      "stamp": "09.09 07:20",
       "stale": false,
-      "status": "manual",
-      "last_stamp": "09.08 17:20"
+      "status": "live",
+      "via_pc": true,
+      "age_min": 2.809821933333333
     },
     "sungshin": {
       "key": "sungshin",
@@ -212,11 +238,21 @@
       "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html",
       "updates": "하루 3회 · 10시/13시/17시",
       "period": "09.08 ~ 09.11 18:00",
-      "tracks": [],
-      "stamp": null,
+      "tracks": [
+        {
+          "track": "발레",
+          "label": "무용예술학과(발레)",
+          "capacity": 8,
+          "applicants": 10,
+          "ratio": 1.25,
+          "delta": 0
+        }
+      ],
+      "stamp": "09.08 17:00",
       "stale": false,
-      "status": "manual",
-      "last_stamp": "09.08 17:00"
+      "status": "live",
+      "via_pc": true,
+      "age_min": 2.809821933333333
     }
   },
   "history": [
@@ -367,9 +403,13 @@
     {
       "at": "2026-09-09T02:00:17.129650+09:00",
       "ballet_total": 232
+    },
+    {
+      "at": "2026-09-09T07:28:16.624316+09:00",
+      "ballet_total": 297
     }
   ],
-  "updated_at": "2026-09-09T07:02:22.661412+09:00",
+  "updated_at": "2026-09-09T07:28:16.624316+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -483,15 +523,37 @@
     ],
     [
       "dankook",
-      null,
+      "09.09 07:20",
       "원본 5분 단위 · 이 보드는 매시 수집",
-      []
+      [
+        [
+          "무용과(한국무용)",
+          16,
+          51
+        ],
+        [
+          "무용과(발레)",
+          13,
+          55
+        ],
+        [
+          "무용과(현대무용)",
+          12,
+          32
+        ]
+      ]
     ],
     [
       "sungshin",
-      null,
+      "09.08 17:00",
       "하루 3회 · 10시/13시/17시",
-      []
+      [
+        [
+          "무용예술학과(발레)",
+          8,
+          10
+        ]
+      ]
     ]
   ]
 }
