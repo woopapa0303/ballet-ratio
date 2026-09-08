@@ -15,7 +15,7 @@
           "capacity": 12,
           "applicants": 43,
           "ratio": 3.58,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "한국무용",
@@ -23,7 +23,7 @@
           "capacity": 7,
           "applicants": 29,
           "ratio": 4.14,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -53,7 +53,7 @@
           "capacity": 12,
           "applicants": 47,
           "ratio": 3.92,
-          "delta": 4
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -61,7 +61,7 @@
           "capacity": 12,
           "applicants": 36,
           "ratio": 3.0,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "발레",
@@ -69,7 +69,7 @@
           "capacity": 12,
           "applicants": 58,
           "ratio": 4.83,
-          "delta": 1
+          "delta": 0
         }
       ],
       "stamp": "09.08 18:00",
@@ -91,7 +91,7 @@
           "capacity": 9,
           "applicants": 42,
           "ratio": 4.67,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -107,7 +107,7 @@
           "capacity": 10,
           "applicants": 32,
           "ratio": 3.2,
-          "delta": 2
+          "delta": 0
         }
       ],
       "stamp": "09.08 18:00",
@@ -198,37 +198,11 @@
       "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html",
       "updates": "원본 5분 단위 · 이 보드는 매시 수집",
       "period": "09.08 ~ 09.11 18:00",
-      "tracks": [
-        {
-          "track": "한국무용",
-          "label": "무용과(한국무용)",
-          "capacity": 16,
-          "applicants": 30,
-          "ratio": 1.88,
-          "delta": 0
-        },
-        {
-          "track": "발레",
-          "label": "무용과(발레)",
-          "capacity": 13,
-          "applicants": 35,
-          "ratio": 2.69,
-          "delta": 0
-        },
-        {
-          "track": "현대무용",
-          "label": "무용과(현대무용)",
-          "capacity": 12,
-          "applicants": 18,
-          "ratio": 1.5,
-          "delta": 0
-        }
-      ],
-      "stamp": "09.08 17:20",
+      "tracks": [],
+      "stamp": null,
       "stale": false,
-      "status": "live",
-      "via_pc": true,
-      "age_min": 32.11610493333333
+      "status": "manual",
+      "last_stamp": "09.08 17:20"
     },
     "sungshin": {
       "key": "sungshin",
@@ -238,21 +212,11 @@
       "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html",
       "updates": "하루 3회 · 10시/13시/17시",
       "period": "09.08 ~ 09.11 18:00",
-      "tracks": [
-        {
-          "track": "발레",
-          "label": "무용예술학과(발레)",
-          "capacity": 8,
-          "applicants": 10,
-          "ratio": 1.25,
-          "delta": 0
-        }
-      ],
-      "stamp": "09.08 17:00",
+      "tracks": [],
+      "stamp": null,
       "stale": false,
-      "status": "live",
-      "via_pc": true,
-      "age_min": 32.11610493333333
+      "status": "manual",
+      "last_stamp": "09.08 17:00"
     }
   },
   "history": [
@@ -367,9 +331,13 @@
     {
       "at": "2026-09-08T18:01:09.966296+09:00",
       "ballet_total": 241
+    },
+    {
+      "at": "2026-09-08T18:59:11.291367+09:00",
+      "ballet_total": 196
     }
   ],
-  "updated_at": "2026-09-08T18:01:09.966296+09:00",
+  "updated_at": "2026-09-08T18:59:11.291367+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -483,37 +451,15 @@
     ],
     [
       "dankook",
-      "09.08 17:20",
+      null,
       "원본 5분 단위 · 이 보드는 매시 수집",
-      [
-        [
-          "무용과(한국무용)",
-          16,
-          30
-        ],
-        [
-          "무용과(발레)",
-          13,
-          35
-        ],
-        [
-          "무용과(현대무용)",
-          12,
-          18
-        ]
-      ]
+      []
     ],
     [
       "sungshin",
-      "09.08 17:00",
+      null,
       "하루 3회 · 10시/13시/17시",
-      [
-        [
-          "무용예술학과(발레)",
-          8,
-          10
-        ]
-      ]
+      []
     ]
   ]
 }
