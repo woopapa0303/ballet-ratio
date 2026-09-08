@@ -14,7 +14,7 @@
           "capacity": 12,
           "applicants": 30,
           "ratio": 2.5,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "한국무용",
@@ -59,7 +59,7 @@
           "capacity": 12,
           "applicants": 26,
           "ratio": 2.17,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "발레",
@@ -67,7 +67,7 @@
           "capacity": 12,
           "applicants": 44,
           "ratio": 3.67,
-          "delta": 3
+          "delta": 0
         }
       ],
       "stamp": "09.08 10:00",
@@ -88,7 +88,7 @@
           "capacity": 9,
           "applicants": 26,
           "ratio": 2.89,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -116,31 +116,81 @@
       "name": "경희대학교",
       "campus": "서울·경기",
       "dept": "무용학부",
-      "url": null,
+      "url": "https://ratio.uwayapply.com/Sl5KOnw5SmYlJjomSjdmVGY=",
       "period": "09.08 ~ 09.11 18:00",
-      "tracks": [],
-      "stamp": null,
+      "tracks": [
+        {
+          "track": "한국무용",
+          "label": "무용학부(한국무용)",
+          "capacity": 16,
+          "applicants": 0,
+          "ratio": 0.0,
+          "delta": 0
+        },
+        {
+          "track": "현대무용",
+          "label": "무용학부(현대무용)",
+          "capacity": 16,
+          "applicants": 0,
+          "ratio": 0.0,
+          "delta": 0
+        },
+        {
+          "track": "발레",
+          "label": "무용학부(발레)",
+          "capacity": 15,
+          "applicants": 0,
+          "ratio": 0.0,
+          "delta": 0
+        }
+      ],
+      "stamp": "09.08 10:00",
       "stale": false,
-      "status": "pending"
+      "status": "live"
     },
     "cau": {
       "key": "cau",
       "name": "중앙대학교",
       "campus": "서울",
       "dept": "무용예술전공",
-      "url": null,
+      "url": "https://ratio.uwayapply.com/Sl5KOjhMSmYlJjomSjdmVGY=",
       "period": "09.08 ~ 09.11 18:00",
-      "tracks": [],
-      "stamp": null,
+      "tracks": [
+        {
+          "track": "한국무용",
+          "label": "무용(한국무용)",
+          "capacity": 12,
+          "applicants": 0,
+          "ratio": 0.0,
+          "delta": 0
+        },
+        {
+          "track": "현대무용",
+          "label": "무용(현대무용)",
+          "capacity": 11,
+          "applicants": 0,
+          "ratio": 0.0,
+          "delta": 0
+        },
+        {
+          "track": "발레",
+          "label": "무용(발레)",
+          "capacity": 11,
+          "applicants": 0,
+          "ratio": 0.0,
+          "delta": 0
+        }
+      ],
+      "stamp": "09.08 10:00",
       "stale": false,
-      "status": "pending"
+      "status": "live"
     },
     "dankook": {
       "key": "dankook",
       "name": "단국대학교",
       "campus": "경기·충남",
       "dept": "무용과",
-      "url": null,
+      "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html",
       "period": "09.08 ~ 09.11 18:00",
       "tracks": [],
       "stamp": null,
@@ -152,7 +202,7 @@
       "name": "성신여자대학교",
       "campus": "서울",
       "dept": "무용예술학과",
-      "url": null,
+      "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html",
       "period": "09.08 ~ 09.11 18:00",
       "tracks": [],
       "stamp": null,
@@ -222,7 +272,7 @@
       "ballet_total": 93
     }
   ],
-  "updated_at": "2026-09-08T10:00:40.729759+09:00",
+  "updated_at": "2026-09-08T10:51:00.638539+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -289,13 +339,45 @@
     ],
     [
       "khu",
-      null,
-      []
+      "09.08 10:00",
+      [
+        [
+          "무용학부(한국무용)",
+          16,
+          0
+        ],
+        [
+          "무용학부(현대무용)",
+          16,
+          0
+        ],
+        [
+          "무용학부(발레)",
+          15,
+          0
+        ]
+      ]
     ],
     [
       "cau",
-      null,
-      []
+      "09.08 10:00",
+      [
+        [
+          "무용(한국무용)",
+          12,
+          0
+        ],
+        [
+          "무용(현대무용)",
+          11,
+          0
+        ],
+        [
+          "무용(발레)",
+          11,
+          0
+        ]
+      ]
     ],
     [
       "dankook",
