@@ -56,6 +56,9 @@ jobs:
               break
             fi
 
+            # PC 가 올려둔 manual.json 등 최신 파일을 먼저 받아온다.
+            git pull -q --rebase --autostash || true
+
             python3 scrape.py || echo "수집 실패 — 다음 회차에 재시도합니다."
 
             if ! git diff --quiet -- index.html data.json; then
