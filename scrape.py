@@ -332,13 +332,17 @@ def collect():
             entry["tracks"] = tracks
             entry["stamp"] = stamp
             entry["status"] = "live"
-        except Exception as exc:  # 네트워크 오류·구조 변경 등
+        except Exception as exc:  # 네트워크 오류·차단·구조 변경 등
             print(f"[warn] {school['name']}: {exc}", file=sys.stderr)
             if prev.get("tracks"):
                 entry["tracks"] = prev["tracks"]
                 entry["stamp"] = prev.get("stamp")
                 entry["status"] = "live"
                 entry["stale"] = True
+            elif "403" in str(exc):
+                # jinhakapply 는 GitHub 서버 같은 데이터센터 IP 를 차단한다.
+                # 이런 대학은 자동 수집이 불가능하므로 바로가기 카드로 보여준다.
+                entry["status"] = "manual"
 
         # 직전 확인 시점 대비 지원자 증감
         prev_by_label = {t["label"]: t for t in prev.get("tracks", [])}
@@ -376,6 +380,22 @@ def render_delta(delta):
 
 
 def render_card(entry):
+    if entry["status"] == "manual":
+        return f"""
+    <article class="card manual">
+      <div class="card-head">
+        <div>
+          <h3>{esc(entry['name'])}{f'<span class="campus"> · {esc(entry["campus"])}</span>' if entry['campus'] else ''}</h3>
+          <p class="dept">{esc(entry['dept'])} · 접수중</p>
+        </div>
+        <span class="pill manual">직접 확인</span>
+      </div>
+      <p class="pending-body">이 대학의 경쟁률 사이트는 외부 자동 조회를 막아 두어
+        숫자를 가져올 수 없습니다. 아래 버튼을 누르면 대학이 운영하는 실시간 경쟁률 화면이
+        그대로 열립니다.</p>
+      <a class="go" href="{esc(entry['url'])}" target="_blank" rel="noopener">경쟁률 바로 보기 ↗</a>
+    </article>"""
+
     if entry["status"] != "live":
         return f"""
     <article class="card pending">
@@ -446,9 +466,38 @@ def render_card(entry):
     </article>"""
 
 
+def summary_text(results, basis):
+    """카톡 등으로 공유할 짧은 요약."""
+    short = {
+        "국민대학교": "국민대",
+        "동덕여자대학교": "동덕여대",
+        "상명대학교": "상명대",
+        "경희대학교": "경희대",
+        "중앙대학교": "중앙대",
+        "단국대학교": "단국대",
+        "성신여자대학교": "성신여대",
+    }
+    lines = [f"발레 경쟁률 ({basis} 기준)"]
+    for e in results:
+        name = short.get(e["name"], e["name"])
+        ballets = [t for t in e["tracks"] if t["track"] == "발레"]
+        if ballets:
+            cap = sum(t["capacity"] for t in ballets)
+            app = sum(t["applicants"] for t in ballets)
+            ratio = app / cap if cap else 0
+            lines.append(f"{name} 모집 {cap}명 지원 {app}명 {ratio:.2f}:1")
+        elif e["status"] == "manual":
+            lines.append(f"{name} 직접 확인")
+        else:
+            lines.append(f"{name} 접수 전")
+    lines.append("https://woopapa0303.github.io/ballet-ratio/")
+    return "\n".join(lines)
+
+
 def render(results, now):
     live = [e for e in results if e["status"] == "live"]
-    pending = [e for e in results if e["status"] != "live"]
+    manual = [e for e in results if e["status"] == "manual"]
+    pending = [e for e in results if e["status"] == "pending"]
 
     stamps = [e["stamp"] for e in live if e["stamp"]]
     basis = max(stamps) if stamps else "–"
@@ -460,6 +509,9 @@ def render(results, now):
         t["capacity"] for e in live for t in e["tracks"] if t["track"] == "발레"
     )
     overall = f"{ballet_apps / ballet_caps:.2f}" if ballet_caps else "–"
+    summary = summary_text(results, basis)
+    summary_js = json.dumps(summary, ensure_ascii=False)
+    summary_json = summary
 
     return f"""<!doctype html>
 <html lang="ko">
@@ -574,6 +626,19 @@ def render(results, now):
   .note li{{margin-bottom:5px}}
   .note a{{color:var(--muted)}}
 
+  .pill.manual{{background:#3a2f1c;color:var(--accent)}}
+  .pill.manual::before{{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}}
+  .card.manual{{border-color:#4a3a24}}
+  .go{{display:block;text-align:center;background:var(--accent-dim);color:var(--accent);
+    border:1px solid var(--accent);border-radius:9px;padding:11px;font-size:13.5px;
+    font-weight:600;text-decoration:none;margin-top:auto}}
+  .go:hover{{background:var(--accent);color:#14181d}}
+  #share{{margin-left:auto;background:transparent;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:12px;
+    font-family:inherit;cursor:pointer}}
+  #share:hover{{color:var(--accent);border-color:var(--accent)}}
+  .section-title{{width:100%}}
+
   #toast{{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);
     background:var(--good-dim);color:var(--good);border:1px solid var(--good);
     padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;
@@ -605,13 +670,20 @@ def render(results, now):
     <div class="stat"><div class="label">대학 발표 기준</div><div class="value" style="font-size:15px">{esc(basis)}</div></div>
   </div>
 
-  <div class="section-title"><h2>접수중 · 발레 경쟁률 공개</h2><span class="count">{len(live)}</span></div>
+  <div class="section-title"><h2>접수중 · 발레 경쟁률 공개</h2><span class="count">{len(live)}</span>
+    <button id="share" type="button">요약 공유</button>
+  </div>
   <div class="grid">{''.join(render_card(e) for e in live)}
   </div>
-
+{f'''
+  <div class="section-title"><h2>대학 사이트에서 직접 확인</h2><span class="count">{len(manual)}</span></div>
+  <div class="grid">{''.join(render_card(e) for e in manual)}
+  </div>
+''' if manual else ''}{f'''
   <div class="section-title"><h2>접수 예정</h2><span class="count">{len(pending)}</span></div>
   <div class="grid">{''.join(render_card(e) for e in pending)}
   </div>
+''' if pending else ''}
 
   <div class="note">
     <h3>참고</h3>
@@ -627,6 +699,7 @@ def render(results, now):
 </div>
 
 <div id="toast">방금 갱신되었습니다</div>
+<script type="application/json" id="summary-data">{summary_json}</script>
 
 <script>
   // GitHub Pages 는 파일을 10분간 CDN 에 캐시해서, 이 주소로는 새 값을 제때 못 받는다
@@ -635,6 +708,27 @@ def render(results, now):
   var RAW = "https://raw.githubusercontent.com/woopapa0303/ballet-ratio/main/";
   var CURRENT = "{now.isoformat()}";
   var checking = false;
+
+  // 카톡 등으로 보낼 짧은 요약. 휴대폰은 공유 시트가 뜨고, PC 는 클립보드로 복사된다.
+  var SUMMARY = {summary_js};
+  function wireShare() {{
+    var btn = document.getElementById("share");
+    if (!btn) return;
+    btn.onclick = async function () {{
+      try {{
+        if (navigator.share) {{
+          await navigator.share({{ text: SUMMARY }});
+        }} else {{
+          await navigator.clipboard.writeText(SUMMARY);
+          btn.textContent = "복사됨";
+          setTimeout(function () {{ btn.textContent = "요약 공유"; }}, 2500);
+        }}
+      }} catch (e) {{
+        /* 사용자가 공유를 취소한 경우 등은 무시 */
+      }}
+    }};
+  }}
+  wireShare();
 
   function showToast() {{
     var el = document.getElementById("toast");
@@ -661,6 +755,8 @@ def render(results, now):
       document.body.replaceWith(document.importNode(doc.body, true));
       if (toast) document.body.appendChild(toast);   // 알림 요소는 유지
       CURRENT = data.updated_at;
+      SUMMARY = (doc.getElementById("summary-data") || {{}}).textContent || SUMMARY;
+      wireShare();
       showToast();
     }} catch (e) {{
       /* 일시적인 네트워크 오류는 조용히 넘기고 다음 회차에 다시 확인한다 */
