@@ -15,7 +15,7 @@
           "capacity": 12,
           "applicants": 58,
           "ratio": 4.83,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "한국무용",
@@ -53,7 +53,7 @@
           "capacity": 12,
           "applicants": 63,
           "ratio": 5.25,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -211,24 +211,24 @@
           "track": "발레",
           "label": "무용과(발레)",
           "capacity": 13,
-          "applicants": 55,
-          "ratio": 4.23,
-          "delta": 0
+          "applicants": 56,
+          "ratio": 4.31,
+          "delta": 1
         },
         {
           "track": "현대무용",
           "label": "무용과(현대무용)",
           "capacity": 12,
-          "applicants": 32,
-          "ratio": 2.67,
-          "delta": 0
+          "applicants": 33,
+          "ratio": 2.75,
+          "delta": 1
         }
       ],
-      "stamp": "09.09 07:20",
+      "stamp": "09.09 08:45",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 34.98129543333334
+      "age_min": 2.60577675
     },
     "sungshin": {
       "key": "sungshin",
@@ -252,7 +252,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 34.98129543333334
+      "age_min": 2.60577675
     }
   },
   "history": [
@@ -411,9 +411,13 @@
     {
       "at": "2026-09-09T08:00:26.912726+09:00",
       "ballet_total": 298
+    },
+    {
+      "at": "2026-09-09T08:49:47.852605+09:00",
+      "ballet_total": 299
     }
   ],
-  "updated_at": "2026-09-09T08:00:26.912726+09:00",
+  "updated_at": "2026-09-09T08:49:47.852605+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -527,7 +531,7 @@
     ],
     [
       "dankook",
-      "09.09 07:20",
+      "09.09 08:45",
       "원본 5분 단위 · 이 보드는 매시 수집",
       [
         [
@@ -538,12 +542,12 @@
         [
           "무용과(발레)",
           13,
-          55
+          56
         ],
         [
           "무용과(현대무용)",
           12,
-          32
+          33
         ]
       ]
     ],
