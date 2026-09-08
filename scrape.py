@@ -82,7 +82,7 @@ SCHOOLS = [
         "campus": "서울",
         "dept": "무용예술학과",
         "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html",
-        "updates": "1시간 단위",
+        "updates": "하루 3회 · 10시/13시/17시",
         "period": "09.08 ~ 09.11 18:00",
     },
 ]
