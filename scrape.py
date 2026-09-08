@@ -27,6 +27,7 @@ SCHOOLS = [
         "campus": "",
         "dept": "예술대학 공연예술학부 · 실기/실적위주(무용실기우수자)",
         "url": "http://ratio.uwayapply.com/Sl5KVyVNOWFhOUpmJSY6Jko3ZlRm",
+        "updates": "1시간 단위",
         "period": "09.07 ~ 09.11 18:00",
     },
     {
@@ -35,6 +36,7 @@ SCHOOLS = [
         "campus": "",
         "dept": "공연예술대학 · 실기우수자전형",
         "url": "http://ratio.uwayapply.com/Sl5KOTpWcldhVkpmJSY6Jko3ZlRm",
+        "updates": "1시간 단위",
         "period": "09.07 ~ 09.11 18:00",
     },
     {
@@ -43,6 +45,7 @@ SCHOOLS = [
         "campus": "서울",
         "dept": "스포츠무용학부 · 실기/실적(실기전형)",
         "url": "http://ratio.uwayapply.com/Sl5KOk0mSmYlJjomSjdmVGY=",
+        "updates": "1시간 단위",
         "period": "09.07 ~ 09.11 18:00",
     },
     # 접수 시작일이 09.08 인 대학들 (경쟁률 주소 확인 완료)
@@ -52,6 +55,7 @@ SCHOOLS = [
         "campus": "서울·경기",
         "dept": "무용학부",
         "url": "https://ratio.uwayapply.com/Sl5KOnw5SmYlJjomSjdmVGY=",
+        "updates": "하루 2회 · 10시/17시",
         "period": "09.08 ~ 09.11 18:00",
     },
     {
@@ -60,6 +64,7 @@ SCHOOLS = [
         "campus": "서울",
         "dept": "무용예술전공",
         "url": "https://ratio.uwayapply.com/Sl5KOjhMSmYlJjomSjdmVGY=",
+        "updates": "하루 2회 · 10시/17시",
         "period": "09.08 ~ 09.11 18:00",
     },
     {
@@ -68,6 +73,7 @@ SCHOOLS = [
         "campus": "경기·충남",
         "dept": "무용과",
         "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html",
+        "updates": "5분 단위",
         "period": "09.08 ~ 09.11 18:00",
     },
     {
@@ -76,6 +82,7 @@ SCHOOLS = [
         "campus": "서울",
         "dept": "무용예술학과",
         "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html",
+        "updates": "1시간 단위",
         "period": "09.08 ~ 09.11 18:00",
     },
 ]
@@ -357,12 +364,14 @@ def collect():
             entry["status"] = "live"
         except Exception as exc:  # 네트워크 오류·차단·구조 변경 등
             print(f"[warn] {school['name']}: {exc}", file=sys.stderr)
-            if prev.get("tracks"):
+            blocked = "403" in str(exc)
+            if prev.get("tracks") and not blocked:
+                # 일시적 오류: 직전 값을 유지하되 지연 표시
                 entry["tracks"] = prev["tracks"]
                 entry["stamp"] = prev.get("stamp")
                 entry["status"] = "live"
                 entry["stale"] = True
-            elif "403" in str(exc):
+            elif blocked:
                 # jinhakapply 는 GitHub 서버 같은 데이터센터 IP 를 차단한다.
                 # 사용자 PC 가 대신 올려둔 값이 있으면 그것을 쓰고, 없거나 오래되면
                 # 바로가기 카드로 보여준다.
@@ -376,8 +385,7 @@ def collect():
                     entry["age_min"] = age
                 else:
                     entry["status"] = "manual"
-                    if picked:
-                        entry["last_stamp"] = picked.get("stamp")
+                    entry["last_stamp"] = (picked or {}).get("stamp") or prev.get("stamp")
 
         # 직전 확인 시점 대비 지원자 증감
         prev_by_label = {t["label"]: t for t in prev.get("tracks", [])}
@@ -495,7 +503,7 @@ def render_card(entry):
       <div class="tracks">{rows}
       </div>
       <div class="card-foot">
-        <span>{esc(entry['stamp'] or '')} 기준 {stale}{' · PC 수집' if entry.get('via_pc') else ''}</span>
+        <span>{esc(entry['stamp'] or '')} 기준 · 대학 갱신 {esc(entry.get('updates') or '')}{stale}{' · PC' if entry.get('via_pc') else ''}</span>
         <a href="{esc(entry['url'])}" target="_blank" rel="noopener">대학 원문 ↗</a>
       </div>
     </article>"""
