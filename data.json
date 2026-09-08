@@ -6,6 +6,7 @@
       "campus": "",
       "dept": "예술대학 공연예술학부 · 실기/실적위주(무용실기우수자)",
       "url": "http://ratio.uwayapply.com/Sl5KVyVNOWFhOUpmJSY6Jko3ZlRm",
+      "updates": "1시간 단위",
       "period": "09.07 ~ 09.11 18:00",
       "tracks": [
         {
@@ -14,7 +15,7 @@
           "capacity": 12,
           "applicants": 41,
           "ratio": 3.42,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "한국무용",
@@ -22,7 +23,7 @@
           "capacity": 7,
           "applicants": 23,
           "ratio": 3.29,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -43,6 +44,7 @@
       "campus": "",
       "dept": "공연예술대학 · 실기우수자전형",
       "url": "http://ratio.uwayapply.com/Sl5KOTpWcldhVkpmJSY6Jko3ZlRm",
+      "updates": "1시간 단위",
       "period": "09.07 ~ 09.11 18:00",
       "tracks": [
         {
@@ -51,7 +53,7 @@
           "capacity": 12,
           "applicants": 39,
           "ratio": 3.25,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -59,7 +61,7 @@
           "capacity": 12,
           "applicants": 32,
           "ratio": 2.67,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "발레",
@@ -80,6 +82,7 @@
       "campus": "서울",
       "dept": "스포츠무용학부 · 실기/실적(실기전형)",
       "url": "http://ratio.uwayapply.com/Sl5KOk0mSmYlJjomSjdmVGY=",
+      "updates": "1시간 단위",
       "period": "09.07 ~ 09.11 18:00",
       "tracks": [
         {
@@ -88,7 +91,7 @@
           "capacity": 9,
           "applicants": 37,
           "ratio": 4.11,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -96,7 +99,7 @@
           "capacity": 9,
           "applicants": 24,
           "ratio": 2.67,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "발레",
@@ -117,6 +120,7 @@
       "campus": "서울·경기",
       "dept": "무용학부",
       "url": "https://ratio.uwayapply.com/Sl5KOnw5SmYlJjomSjdmVGY=",
+      "updates": "하루 2회 · 10시/17시",
       "period": "09.08 ~ 09.11 18:00",
       "tracks": [
         {
@@ -154,6 +158,7 @@
       "campus": "서울",
       "dept": "무용예술전공",
       "url": "https://ratio.uwayapply.com/Sl5KOjhMSmYlJjomSjdmVGY=",
+      "updates": "하루 2회 · 10시/17시",
       "period": "09.08 ~ 09.11 18:00",
       "tracks": [
         {
@@ -191,36 +196,39 @@
       "campus": "경기·충남",
       "dept": "무용과",
       "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html",
+      "updates": "5분 단위",
       "period": "09.08 ~ 09.11 18:00",
       "tracks": [
         {
           "track": "한국무용",
           "label": "무용과(한국무용)",
           "capacity": 16,
-          "applicants": 12,
-          "ratio": 0.75,
-          "delta": 0
+          "applicants": 25,
+          "ratio": 1.56,
+          "delta": 13
         },
         {
           "track": "발레",
           "label": "무용과(발레)",
           "capacity": 13,
-          "applicants": 23,
-          "ratio": 1.77,
-          "delta": 0
+          "applicants": 33,
+          "ratio": 2.54,
+          "delta": 10
         },
         {
           "track": "현대무용",
           "label": "무용과(현대무용)",
           "capacity": 12,
-          "applicants": 9,
-          "ratio": 0.75,
-          "delta": 0
+          "applicants": 17,
+          "ratio": 1.42,
+          "delta": 8
         }
       ],
-      "stamp": "09.08 13:15",
-      "stale": true,
-      "status": "live"
+      "stamp": "09.08 16:45",
+      "stale": false,
+      "status": "live",
+      "via_pc": true,
+      "age_min": 3.0761978166666664
     },
     "sungshin": {
       "key": "sungshin",
@@ -228,6 +236,7 @@
       "campus": "서울",
       "dept": "무용예술학과",
       "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10930201.html",
+      "updates": "1시간 단위",
       "period": "09.08 ~ 09.11 18:00",
       "tracks": [
         {
@@ -240,8 +249,10 @@
         }
       ],
       "stamp": "09.08 13:00",
-      "stale": true,
-      "status": "live"
+      "stale": false,
+      "status": "live",
+      "via_pc": true,
+      "age_min": 3.0761978166666664
     }
   },
   "history": [
@@ -332,9 +343,13 @@
     {
       "at": "2026-09-08T16:02:12.476831+09:00",
       "ballet_total": 153
+    },
+    {
+      "at": "2026-09-08T16:52:42.291869+09:00",
+      "ballet_total": 163
     }
   ],
-  "updated_at": "2026-09-08T16:02:12.476831+09:00",
+  "updated_at": "2026-09-08T16:52:42.291869+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -443,22 +458,22 @@
     ],
     [
       "dankook",
-      "09.08 13:15",
+      "09.08 16:45",
       [
         [
           "무용과(한국무용)",
           16,
-          12
+          25
         ],
         [
           "무용과(발레)",
           13,
-          23
+          33
         ],
         [
           "무용과(현대무용)",
           12,
-          9
+          17
         ]
       ]
     ],
