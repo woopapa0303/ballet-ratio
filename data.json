@@ -23,7 +23,7 @@
           "capacity": 7,
           "applicants": 27,
           "ratio": 3.86,
-          "delta": 4
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -53,7 +53,7 @@
           "capacity": 12,
           "applicants": 43,
           "ratio": 3.58,
-          "delta": 4
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -61,7 +61,7 @@
           "capacity": 12,
           "applicants": 34,
           "ratio": 2.83,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "발레",
@@ -69,7 +69,7 @@
           "capacity": 12,
           "applicants": 57,
           "ratio": 4.75,
-          "delta": 3
+          "delta": 0
         }
       ],
       "stamp": "09.08 17:00",
@@ -91,7 +91,7 @@
           "capacity": 9,
           "applicants": 40,
           "ratio": 4.44,
-          "delta": 3
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -129,7 +129,7 @@
           "capacity": 16,
           "applicants": 21,
           "ratio": 1.31,
-          "delta": 21
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -137,7 +137,7 @@
           "capacity": 16,
           "applicants": 19,
           "ratio": 1.19,
-          "delta": 19
+          "delta": 0
         },
         {
           "track": "발레",
@@ -145,7 +145,7 @@
           "capacity": 15,
           "applicants": 39,
           "ratio": 2.6,
-          "delta": 39
+          "delta": 0
         }
       ],
       "stamp": "09.08 17:00",
@@ -167,7 +167,7 @@
           "capacity": 12,
           "applicants": 9,
           "ratio": 0.75,
-          "delta": 9
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -175,7 +175,7 @@
           "capacity": 11,
           "applicants": 16,
           "ratio": 1.45,
-          "delta": 16
+          "delta": 0
         },
         {
           "track": "발레",
@@ -183,7 +183,7 @@
           "capacity": 11,
           "applicants": 24,
           "ratio": 2.18,
-          "delta": 24
+          "delta": 0
         }
       ],
       "stamp": "09.08 17:00",
@@ -203,17 +203,17 @@
           "track": "한국무용",
           "label": "무용과(한국무용)",
           "capacity": 16,
-          "applicants": 25,
-          "ratio": 1.56,
-          "delta": 0
+          "applicants": 29,
+          "ratio": 1.81,
+          "delta": 4
         },
         {
           "track": "발레",
           "label": "무용과(발레)",
           "capacity": 13,
-          "applicants": 33,
-          "ratio": 2.54,
-          "delta": 0
+          "applicants": 35,
+          "ratio": 2.69,
+          "delta": 2
         },
         {
           "track": "현대무용",
@@ -224,11 +224,11 @@
           "delta": 0
         }
       ],
-      "stamp": "09.08 16:45",
+      "stamp": "09.08 17:05",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 12.4626884
+      "age_min": 0.1234046
     },
     "sungshin": {
       "key": "sungshin",
@@ -243,16 +243,16 @@
           "track": "발레",
           "label": "무용예술학과(발레)",
           "capacity": 8,
-          "applicants": 5,
-          "ratio": 0.63,
-          "delta": 0
+          "applicants": 10,
+          "ratio": 1.25,
+          "delta": 5
         }
       ],
-      "stamp": "09.08 13:00",
+      "stamp": "09.08 17:00",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 12.4626884
+      "age_min": 0.1234046
     }
   },
   "history": [
@@ -351,9 +351,13 @@
     {
       "at": "2026-09-08T17:02:05.481304+09:00",
       "ballet_total": 229
+    },
+    {
+      "at": "2026-09-08T17:08:31.137276+09:00",
+      "ballet_total": 236
     }
   ],
-  "updated_at": "2026-09-08T17:02:05.481304+09:00",
+  "updated_at": "2026-09-08T17:08:31.137276+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -462,17 +466,17 @@
     ],
     [
       "dankook",
-      "09.08 16:45",
+      "09.08 17:05",
       [
         [
           "무용과(한국무용)",
           16,
-          25
+          29
         ],
         [
           "무용과(발레)",
           13,
-          33
+          35
         ],
         [
           "무용과(현대무용)",
@@ -483,12 +487,12 @@
     ],
     [
       "sungshin",
-      "09.08 13:00",
+      "09.08 17:00",
       [
         [
           "무용예술학과(발레)",
           8,
-          5
+          10
         ]
       ]
     ]
