@@ -73,7 +73,7 @@ SCHOOLS = [
         "campus": "경기·충남",
         "dept": "무용과",
         "url": "https://addon.jinhakapply.com/RatioV1/RatioH/Ratio10420521.html",
-        "updates": "5분 단위",
+        "updates": "원본 5분 단위 · 이 보드는 매시 수집",
         "period": "09.08 ~ 09.11 18:00",
     },
     {
