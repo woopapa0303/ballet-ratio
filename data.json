@@ -213,7 +213,7 @@
           "capacity": 13,
           "applicants": 77,
           "ratio": 5.92,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -221,14 +221,14 @@
           "capacity": 12,
           "applicants": 47,
           "ratio": 3.92,
-          "delta": 1
+          "delta": 0
         }
       ],
-      "stamp": "09.09 16:15",
+      "stamp": "09.09 16:25",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.3640082833333333
+      "age_min": 0.20090726666666667
     },
     "sungshin": {
       "key": "sungshin",
@@ -252,7 +252,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.3640082833333333
+      "age_min": 0.20090726666666667
     }
   },
   "history": [
@@ -497,7 +497,7 @@
       "ballet_total": 432
     }
   ],
-  "updated_at": "2026-09-09T16:17:57.845497+09:00",
+  "updated_at": "2026-09-09T16:31:43.978436+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -611,7 +611,7 @@
     ],
     [
       "dankook",
-      "09.09 16:15",
+      "09.09 16:25",
       "원본 5분 단위 · 이 보드는 15분마다 수집",
       [
         [
