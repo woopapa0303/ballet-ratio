@@ -1,18 +1,18 @@
 {
  "dankook": {
-  "stamp": "09.10 01:00",
+  "stamp": "09.10 02:00",
   "tracks": [
    {
     "label": "무용과(한국무용)",
     "capacity": 16,
-    "applicants": 108,
-    "ratio": 6.75
+    "applicants": 109,
+    "ratio": 6.81
    },
    {
     "label": "무용과(발레)",
     "capacity": 13,
-    "applicants": 96,
-    "ratio": 7.38
+    "applicants": 97,
+    "ratio": 7.46
    },
    {
     "label": "무용과(현대무용)",
@@ -21,7 +21,7 @@
     "ratio": 4.92
    }
   ],
-  "collected_at": "2026-09-10T01:04:48.305+09:00"
+  "collected_at": "2026-09-10T02:04:18.810+09:00"
  },
  "sungshin": {
   "stamp": "09.09 17:00",
@@ -33,6 +33,6 @@
     "ratio": 2.13
    }
   ],
-  "collected_at": "2026-09-10T01:04:48.305+09:00"
+  "collected_at": "2026-09-10T02:04:18.810+09:00"
  }
 }
