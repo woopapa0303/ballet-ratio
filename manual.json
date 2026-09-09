@@ -1,13 +1,13 @@
 {
   "dankook": {
-    "stamp": "09.09 09:40",
+    "stamp": "09.09 09:55",
     "tracks": [
       {
         "track": "한국무용",
         "label": "무용과(한국무용)",
         "capacity": 16,
-        "applicants": 51,
-        "ratio": 3.19,
+        "applicants": 54,
+        "ratio": 3.38,
         "delta": 0
       },
       {
@@ -27,7 +27,7 @@
         "delta": 0
       }
     ],
-    "collected_at": "2026-09-09T09:46:14.688+09:00"
+    "collected_at": "2026-09-09T10:01:01.822+09:00"
   },
   "sungshin": {
     "stamp": "09.08 17:00",
@@ -41,6 +41,6 @@
         "delta": 0
       }
     ],
-    "collected_at": "2026-09-09T09:46:14.688+09:00"
+    "collected_at": "2026-09-09T10:01:01.822+09:00"
   }
 }
