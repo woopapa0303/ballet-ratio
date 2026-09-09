@@ -203,9 +203,9 @@
           "track": "한국무용",
           "label": "무용과(한국무용)",
           "capacity": 16,
-          "applicants": 81,
-          "ratio": 5.06,
-          "delta": 2
+          "applicants": 82,
+          "ratio": 5.13,
+          "delta": 1
         },
         {
           "track": "발레",
@@ -224,11 +224,11 @@
           "delta": 0
         }
       ],
-      "stamp": "09.09 17:55",
+      "stamp": "09.09 18:10",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.12172306666666667
+      "age_min": 0.12163751666666665
     },
     "sungshin": {
       "key": "sungshin",
@@ -252,7 +252,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.12172306666666667
+      "age_min": 0.12163751666666665
     }
   },
   "history": [
@@ -509,7 +509,7 @@
       "ballet_total": 494
     }
   ],
-  "updated_at": "2026-09-09T18:01:12.039384+09:00",
+  "updated_at": "2026-09-09T18:16:28.338251+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -623,13 +623,13 @@
     ],
     [
       "dankook",
-      "09.09 17:55",
+      "09.09 18:10",
       "원본 5분 단위 · 이 보드는 15분마다 수집",
       [
         [
           "무용과(한국무용)",
           16,
-          81
+          82
         ],
         [
           "무용과(발레)",
