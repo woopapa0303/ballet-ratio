@@ -71,11 +71,11 @@ jobs:
 
             MIN=$(date -u +%-M)
             if [ "$MIN" -lt 6 ]; then
-              sleep 20            # 정각 직후: 촘촘하게
-            elif [ "$MIN" -lt 12 ]; then
-              sleep 60
+              sleep 20                      # 정각 직후: 대학 원본이 바뀌는 구간
+            elif [ $(( MIN % 15 )) -lt 7 ]; then
+              sleep 30                      # PC 수집(00/15/30/45분)이 올라오는 구간
             else
-              sleep 180
+              sleep 120
             fi
           done
 
