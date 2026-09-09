@@ -1,6 +1,6 @@
 {
   "dankook": {
-    "stamp": "09.09 20:15",
+    "stamp": "09.09 20:25",
     "tracks": [
       {
         "track": "한국무용",
@@ -14,8 +14,8 @@
         "track": "발레",
         "label": "무용과(발레)",
         "capacity": 13,
-        "applicants": 80,
-        "ratio": 6.15,
+        "applicants": 81,
+        "ratio": 6.23,
         "delta": 0
       },
       {
@@ -27,7 +27,7 @@
         "delta": 0
       }
     ],
-    "collected_at": "2026-09-09T20:18:24.380+09:00"
+    "collected_at": "2026-09-09T20:30:51.876+09:00"
   },
   "sungshin": {
     "stamp": "09.09 17:00",
@@ -41,6 +41,6 @@
         "delta": 0
       }
     ],
-    "collected_at": "2026-09-09T20:18:24.380+09:00"
+    "collected_at": "2026-09-09T20:30:51.876+09:00"
   }
 }
