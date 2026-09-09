@@ -203,32 +203,32 @@
           "track": "한국무용",
           "label": "무용과(한국무용)",
           "capacity": 16,
-          "applicants": 93,
-          "ratio": 5.81,
-          "delta": 0
+          "applicants": 94,
+          "ratio": 5.88,
+          "delta": 1
         },
         {
           "track": "발레",
           "label": "무용과(발레)",
           "capacity": 13,
-          "applicants": 89,
-          "ratio": 6.85,
+          "applicants": 90,
+          "ratio": 6.92,
           "delta": 1
         },
         {
           "track": "현대무용",
           "label": "무용과(현대무용)",
           "capacity": 12,
-          "applicants": 52,
-          "ratio": 4.33,
-          "delta": 0
+          "applicants": 55,
+          "ratio": 4.58,
+          "delta": 3
         }
       ],
-      "stamp": "09.09 22:25",
+      "stamp": "09.09 22:45",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.6046146166666666
+      "age_min": 0.58280485
     },
     "sungshin": {
       "key": "sungshin",
@@ -252,7 +252,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.6046146166666666
+      "age_min": 0.58280485
     }
   },
   "history": [
@@ -555,9 +555,13 @@
     {
       "at": "2026-09-09T22:31:56.380877+09:00",
       "ballet_total": 526
+    },
+    {
+      "at": "2026-09-09T22:47:34.187291+09:00",
+      "ballet_total": 527
     }
   ],
-  "updated_at": "2026-09-09T22:31:56.380877+09:00",
+  "updated_at": "2026-09-09T22:47:34.187291+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -671,23 +675,23 @@
     ],
     [
       "dankook",
-      "09.09 22:25",
+      "09.09 22:45",
       "원본 5분 단위 · 이 보드는 15분마다 수집",
       [
         [
           "무용과(한국무용)",
           16,
-          93
+          94
         ],
         [
           "무용과(발레)",
           13,
-          89
+          90
         ],
         [
           "무용과(현대무용)",
           12,
-          52
+          55
         ]
       ]
     ],
