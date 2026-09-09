@@ -34,7 +34,7 @@
           "delta": 0
         }
       ],
-      "stamp": "09.09 19:00",
+      "stamp": "09.09 20:00",
       "stale": false,
       "status": "live"
     },
@@ -59,20 +59,20 @@
           "track": "현대무용",
           "label": "무용전공(현대무용)",
           "capacity": 12,
-          "applicants": 71,
-          "ratio": 5.92,
-          "delta": 0
+          "applicants": 72,
+          "ratio": 6.0,
+          "delta": 1
         },
         {
           "track": "발레",
           "label": "무용전공(발레)",
           "capacity": 12,
-          "applicants": 105,
-          "ratio": 8.75,
-          "delta": 0
+          "applicants": 106,
+          "ratio": 8.83,
+          "delta": 1
         }
       ],
-      "stamp": "09.09 19:00",
+      "stamp": "09.09 20:00",
       "stale": false,
       "status": "live"
     },
@@ -97,20 +97,20 @@
           "track": "현대무용",
           "label": "무용예술전공(현대무용)",
           "capacity": 9,
-          "applicants": 55,
-          "ratio": 6.11,
-          "delta": 0
+          "applicants": 56,
+          "ratio": 6.22,
+          "delta": 1
         },
         {
           "track": "발레",
           "label": "무용예술전공(발레)",
           "capacity": 10,
-          "applicants": 49,
-          "ratio": 4.9,
-          "delta": 0
+          "applicants": 50,
+          "ratio": 5.0,
+          "delta": 1
         }
       ],
-      "stamp": "09.09 19:00",
+      "stamp": "09.09 20:00",
       "stale": false,
       "status": "live"
     },
@@ -228,7 +228,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.5560654333333334
+      "age_min": 14.915164066666668
     },
     "sungshin": {
       "key": "sungshin",
@@ -252,7 +252,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.5560654333333334
+      "age_min": 14.915164066666668
     }
   },
   "history": [
@@ -515,13 +515,17 @@
     {
       "at": "2026-09-09T19:00:42.331428+09:00",
       "ballet_total": 496
+    },
+    {
+      "at": "2026-09-09T20:00:47.109844+09:00",
+      "ballet_total": 498
     }
   ],
-  "updated_at": "2026-09-09T19:46:25.563926+09:00",
+  "updated_at": "2026-09-09T20:00:47.109844+09:00",
   "fingerprint": [
     [
       "kookmin",
-      "09.09 19:00",
+      "09.09 20:00",
       "1시간 단위",
       [
         [
@@ -543,7 +547,7 @@
     ],
     [
       "dongduk",
-      "09.09 19:00",
+      "09.09 20:00",
       "1시간 단위",
       [
         [
@@ -554,18 +558,18 @@
         [
           "무용전공(현대무용)",
           12,
-          71
+          72
         ],
         [
           "무용전공(발레)",
           12,
-          105
+          106
         ]
       ]
     ],
     [
       "sangmyung",
-      "09.09 19:00",
+      "09.09 20:00",
       "1시간 단위",
       [
         [
@@ -576,12 +580,12 @@
         [
           "무용예술전공(현대무용)",
           9,
-          55
+          56
         ],
         [
           "무용예술전공(발레)",
           10,
-          49
+          50
         ]
       ]
     ],
