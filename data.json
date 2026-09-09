@@ -205,7 +205,7 @@
           "capacity": 16,
           "applicants": 78,
           "ratio": 4.88,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "발레",
@@ -221,14 +221,14 @@
           "capacity": 12,
           "applicants": 50,
           "ratio": 4.17,
-          "delta": 2
+          "delta": 0
         }
       ],
-      "stamp": "09.09 17:15",
+      "stamp": "09.09 17:25",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.33761515000000003
+      "age_min": 0.21256429999999998
     },
     "sungshin": {
       "key": "sungshin",
@@ -252,7 +252,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.33761515000000003
+      "age_min": 0.21256429999999998
     }
   },
   "history": [
@@ -505,7 +505,7 @@
       "ballet_total": 491
     }
   ],
-  "updated_at": "2026-09-09T17:17:04.282909+09:00",
+  "updated_at": "2026-09-09T17:31:25.794858+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -619,7 +619,7 @@
     ],
     [
       "dankook",
-      "09.09 17:15",
+      "09.09 17:25",
       "원본 5분 단위 · 이 보드는 15분마다 수집",
       [
         [
