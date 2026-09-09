@@ -224,11 +224,11 @@
           "delta": 0
         }
       ],
-      "stamp": "09.09 09:25",
+      "stamp": "09.09 09:40",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.34785276666666665
+      "age_min": 0.6203196
     },
     "sungshin": {
       "key": "sungshin",
@@ -252,7 +252,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.34785276666666665
+      "age_min": 0.6203196
     }
   },
   "history": [
@@ -421,7 +421,7 @@
       "ballet_total": 300
     }
   ],
-  "updated_at": "2026-09-09T09:31:19.896166+09:00",
+  "updated_at": "2026-09-09T09:46:51.907176+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -535,7 +535,7 @@
     ],
     [
       "dankook",
-      "09.09 09:25",
+      "09.09 09:40",
       "원본 5분 단위 · 이 보드는 매시 수집",
       [
         [
