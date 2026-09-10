@@ -24,7 +24,7 @@
           "capacity": 7,
           "applicants": 77,
           "ratio": 11.0,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -32,7 +32,7 @@
           "capacity": 8,
           "applicants": 50,
           "ratio": 6.25,
-          "delta": 1
+          "delta": 0
         }
       ],
       "stamp": "09.10 15:00",
@@ -55,7 +55,7 @@
           "capacity": 12,
           "applicants": 100,
           "ratio": 8.33,
-          "delta": 5
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -63,7 +63,7 @@
           "capacity": 12,
           "applicants": 107,
           "ratio": 8.92,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "발레",
@@ -94,7 +94,7 @@
           "capacity": 9,
           "applicants": 102,
           "ratio": 11.33,
-          "delta": 1
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -230,11 +230,11 @@
           "delta": 0
         }
       ],
-      "stamp": "09.10 14:45",
+      "stamp": "09.10 15:00",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 14.601628616666666
+      "age_min": 0.47482298333333334
     },
     "sungshin": {
       "key": "sungshin",
@@ -259,7 +259,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 14.601628616666666
+      "age_min": 0.47482298333333334
     }
   },
   "history": [
@@ -620,7 +620,7 @@
       "ballet_total": 636
     }
   ],
-  "updated_at": "2026-09-10T15:01:21.292717+09:00",
+  "updated_at": "2026-09-10T15:03:30.231379+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -739,7 +739,7 @@
     ],
     [
       "dankook",
-      "09.10 14:45",
+      "09.10 15:00",
       "원본 5분 단위 · 이 보드는 15분마다 수집",
       "발레·현대무용 11.01(일) · 한국무용 10.31(토)",
       [
