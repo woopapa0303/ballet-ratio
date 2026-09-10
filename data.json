@@ -209,17 +209,17 @@
           "track": "한국무용",
           "label": "무용과(한국무용)",
           "capacity": 16,
-          "applicants": 119,
-          "ratio": 7.44,
-          "delta": 0
+          "applicants": 120,
+          "ratio": 7.5,
+          "delta": 1
         },
         {
           "track": "발레",
           "label": "무용과(발레)",
           "capacity": 13,
-          "applicants": 102,
-          "ratio": 7.85,
-          "delta": 0
+          "applicants": 103,
+          "ratio": 7.92,
+          "delta": 1
         },
         {
           "track": "현대무용",
@@ -227,14 +227,14 @@
           "capacity": 12,
           "applicants": 68,
           "ratio": 5.67,
-          "delta": 1
+          "delta": 0
         }
       ],
-      "stamp": "09.10 13:00",
+      "stamp": "09.10 13:15",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.500058
+      "age_min": 0.6199031
     },
     "sungshin": {
       "key": "sungshin",
@@ -252,14 +252,14 @@
           "capacity": 8,
           "applicants": 24,
           "ratio": 3,
-          "delta": 4
+          "delta": 0
         }
       ],
       "stamp": "09.10 13:00",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.500058
+      "age_min": 0.6199031
     }
   },
   "history": [
@@ -614,9 +614,13 @@
     {
       "at": "2026-09-10T13:02:47.819480+09:00",
       "ballet_total": 635
+    },
+    {
+      "at": "2026-09-10T13:17:38.035186+09:00",
+      "ballet_total": 636
     }
   ],
-  "updated_at": "2026-09-10T13:02:47.819480+09:00",
+  "updated_at": "2026-09-10T13:17:38.035186+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -735,19 +739,19 @@
     ],
     [
       "dankook",
-      "09.10 13:00",
+      "09.10 13:15",
       "원본 5분 단위 · 이 보드는 15분마다 수집",
       "발레·현대무용 11.01(일) · 한국무용 10.31(토)",
       [
         [
           "무용과(한국무용)",
           16,
-          119
+          120
         ],
         [
           "무용과(발레)",
           13,
-          102
+          103
         ],
         [
           "무용과(현대무용)",
