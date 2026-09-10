@@ -230,11 +230,11 @@
           "delta": 0
         }
       ],
-      "stamp": "09.10 12:15",
+      "stamp": "09.10 12:30",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.4981982
+      "age_min": 0.5126884166666666
     },
     "sungshin": {
       "key": "sungshin",
@@ -259,7 +259,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.4981982
+      "age_min": 0.5126884166666666
     }
   },
   "history": [
@@ -604,7 +604,7 @@
       "ballet_total": 620
     }
   ],
-  "updated_at": "2026-09-10T12:17:20.475892+09:00",
+  "updated_at": "2026-09-10T12:32:57.547305+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -723,7 +723,7 @@
     ],
     [
       "dankook",
-      "09.10 12:15",
+      "09.10 12:30",
       "원본 5분 단위 · 이 보드는 15분마다 수집",
       "발레·현대무용 11.01(일) · 한국무용 10.31(토)",
       [
