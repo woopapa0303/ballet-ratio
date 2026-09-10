@@ -209,32 +209,32 @@
           "track": "한국무용",
           "label": "무용과(한국무용)",
           "capacity": 16,
-          "applicants": 118,
-          "ratio": 7.38,
-          "delta": 0
+          "applicants": 119,
+          "ratio": 7.44,
+          "delta": 1
         },
         {
           "track": "발레",
           "label": "무용과(발레)",
           "capacity": 13,
-          "applicants": 100,
-          "ratio": 7.69,
-          "delta": 0
+          "applicants": 101,
+          "ratio": 7.77,
+          "delta": 1
         },
         {
           "track": "현대무용",
           "label": "무용과(현대무용)",
           "capacity": 12,
-          "applicants": 65,
-          "ratio": 5.42,
+          "applicants": 66,
+          "ratio": 5.5,
           "delta": 1
         }
       ],
-      "stamp": "09.10 11:15",
+      "stamp": "09.10 11:30",
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.8869346666666666
+      "age_min": 0.6789494833333334
     },
     "sungshin": {
       "key": "sungshin",
@@ -259,7 +259,7 @@
       "stale": false,
       "status": "live",
       "via_pc": true,
-      "age_min": 0.8869346666666666
+      "age_min": 0.6789494833333334
     }
   },
   "history": [
@@ -594,9 +594,13 @@
     {
       "at": "2026-09-10T11:00:31.297763+09:00",
       "ballet_total": 615
+    },
+    {
+      "at": "2026-09-10T11:32:35.111969+09:00",
+      "ballet_total": 616
     }
   ],
-  "updated_at": "2026-09-10T11:18:08.942080+09:00",
+  "updated_at": "2026-09-10T11:32:35.111969+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -715,24 +719,24 @@
     ],
     [
       "dankook",
-      "09.10 11:15",
+      "09.10 11:30",
       "원본 5분 단위 · 이 보드는 15분마다 수집",
       "발레·현대무용 11.01(일) · 한국무용 10.31(토)",
       [
         [
           "무용과(한국무용)",
           16,
-          118
+          119
         ],
         [
           "무용과(발레)",
           13,
-          100
+          101
         ],
         [
           "무용과(현대무용)",
           12,
-          65
+          66
         ]
       ]
     ],
