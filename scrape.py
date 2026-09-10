@@ -23,6 +23,7 @@ KST = timezone(timedelta(hours=9))
 SCHOOLS = [
     {
         "key": "kookmin",
+        "exam": "발레 10.18(일) · 한국무용 10.16 · 현대무용 10.17",
         "name": "국민대학교",
         "campus": "",
         "dept": "예술대학 공연예술학부 · 실기/실적위주(무용실기우수자)",
@@ -32,6 +33,7 @@ SCHOOLS = [
     },
     {
         "key": "dongduk",
+        "exam": "발레 10.01(목) · 한국무용 09.29 · 현대무용 09.30",
         "name": "동덕여자대학교",
         "campus": "",
         "dept": "공연예술대학 · 실기우수자전형",
@@ -41,6 +43,7 @@ SCHOOLS = [
     },
     {
         "key": "sangmyung",
+        "exam": "10.15(목)~10.17(토) 중 1일 · 10.08 14시 개인별 발표",
         "name": "상명대학교",
         "campus": "서울",
         "dept": "스포츠무용학부 · 실기/실적(실기전형)",
@@ -51,6 +54,7 @@ SCHOOLS = [
     # 접수 시작일이 09.08 인 대학들 (경쟁률 주소 확인 완료)
     {
         "key": "khu",
+        "exam": "발레 10.03(토) · 현대무용 10.04(일)",
         "name": "경희대학교",
         "campus": "서울·경기",
         "dept": "무용학부",
@@ -60,6 +64,7 @@ SCHOOLS = [
     },
     {
         "key": "cau",
+        "exam": "10.31(토)~11.01(일)",
         "name": "중앙대학교",
         "campus": "서울",
         "dept": "무용예술전공",
@@ -69,6 +74,7 @@ SCHOOLS = [
     },
     {
         "key": "dankook",
+        "exam": "발레·현대무용 11.01(일) · 한국무용 10.31(토)",
         "name": "단국대학교",
         "campus": "경기·충남",
         "dept": "무용과",
@@ -78,6 +84,7 @@ SCHOOLS = [
     },
     {
         "key": "sungshin",
+        "exam": "발레 10.17(토) 10:00 · 돈암 수정캠퍼스",
         "name": "성신여자대학교",
         "campus": "서울",
         "dept": "무용예술학과",
@@ -446,6 +453,7 @@ def render_card(entry):
         <div>
           <h3>{esc(entry['name'])}{f'<span class="campus"> · {esc(entry["campus"])}</span>' if entry['campus'] else ''}</h3>
           <p class="dept">{esc(entry['dept'])}</p>
+          {f'<p class="exam">실기 {esc(entry["exam"])}</p>' if entry.get('exam') else ''}
         </div>
         <span class="pill pending">접수예정</span>
       </div>
@@ -497,6 +505,7 @@ def render_card(entry):
         <div>
           <h3>{esc(entry['name'])}{f'<span class="campus"> · {esc(entry["campus"])}</span>' if entry['campus'] else ''}</h3>
           <p class="dept">{esc(entry['dept'])}</p>
+          {f'<p class="exam">실기 {esc(entry["exam"])}</p>' if entry.get('exam') else ''}
         </div>
         <span class="pill live">접수중</span>
       </div>{headline}
@@ -620,6 +629,7 @@ def render(results, now):
     font-size:18px;line-height:1.25;margin:0}}
   .campus{{color:var(--muted);font-weight:500}}
   .dept{{color:var(--muted);font-size:12px;margin:3px 0 0}}
+  .exam{{color:var(--accent);font-size:12px;margin:5px 0 0}}
 
   .pill{{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 8px;
     border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:11px;
@@ -829,6 +839,7 @@ def fingerprint(results):
             e["key"],
             e["stamp"],
             e.get("updates", ""),
+            e.get("exam", ""),
             [[t["label"], t["capacity"], t["applicants"]] for t in e["tracks"]],
         ]
         for e in results
