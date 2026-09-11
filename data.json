@@ -133,7 +133,7 @@
           "capacity": 16,
           "applicants": 144,
           "ratio": 9.0,
-          "delta": 2
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -141,7 +141,7 @@
           "capacity": 16,
           "applicants": 142,
           "ratio": 8.88,
-          "delta": 5
+          "delta": 0
         },
         {
           "track": "발레",
@@ -149,7 +149,7 @@
           "capacity": 15,
           "applicants": 130,
           "ratio": 8.67,
-          "delta": 2
+          "delta": 0
         }
       ],
       "stamp": null,
@@ -170,28 +170,28 @@
           "track": "한국무용",
           "label": "무용(한국무용)",
           "capacity": 12,
-          "applicants": 55,
-          "ratio": 4.58,
-          "delta": 0
+          "applicants": 61,
+          "ratio": 5.08,
+          "delta": 6
         },
         {
           "track": "현대무용",
           "label": "무용(현대무용)",
           "capacity": 11,
-          "applicants": 130,
-          "ratio": 11.82,
-          "delta": 0
+          "applicants": 140,
+          "ratio": 12.73,
+          "delta": 10
         },
         {
           "track": "발레",
           "label": "무용(발레)",
           "capacity": 11,
-          "applicants": 150,
-          "ratio": 13.64,
-          "delta": 0
+          "applicants": 156,
+          "ratio": 14.18,
+          "delta": 6
         }
       ],
-      "stamp": "09.11 14:00",
+      "stamp": null,
       "stale": false,
       "status": "live"
     },
@@ -666,9 +666,13 @@
     {
       "at": "2026-09-11T19:00:21.357443+09:00",
       "ballet_total": 630
+    },
+    {
+      "at": "2026-09-11T19:28:34.442899+09:00",
+      "ballet_total": 636
     }
   ],
-  "updated_at": "2026-09-11T19:00:21.357443+09:00",
+  "updated_at": "2026-09-11T19:28:34.442899+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -764,24 +768,24 @@
     ],
     [
       "cau",
-      "09.11 14:00",
+      null,
       "하루 2회 · 10시/17시",
       "10.31(토)~11.01(일)",
       [
         [
           "무용(한국무용)",
           12,
-          55
+          61
         ],
         [
           "무용(현대무용)",
           11,
-          130
+          140
         ],
         [
           "무용(발레)",
           11,
-          150
+          156
         ]
       ]
     ],
