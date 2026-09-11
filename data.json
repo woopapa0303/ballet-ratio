@@ -16,7 +16,7 @@
           "capacity": 12,
           "applicants": 134,
           "ratio": 11.17,
-          "delta": 7
+          "delta": 0
         },
         {
           "track": "한국무용",
@@ -32,7 +32,7 @@
           "capacity": 8,
           "applicants": 85,
           "ratio": 10.63,
-          "delta": 8
+          "delta": 0
         }
       ],
       "stamp": null,
@@ -53,28 +53,28 @@
           "track": "한국무용",
           "label": "무용전공(한국무용)",
           "capacity": 12,
-          "applicants": 130,
-          "ratio": 10.83,
-          "delta": 0
+          "applicants": 136,
+          "ratio": 11.33,
+          "delta": 6
         },
         {
           "track": "현대무용",
           "label": "무용전공(현대무용)",
           "capacity": 12,
-          "applicants": 144,
-          "ratio": 12.0,
-          "delta": 0
+          "applicants": 151,
+          "ratio": 12.58,
+          "delta": 7
         },
         {
           "track": "발레",
           "label": "무용전공(발레)",
           "capacity": 12,
-          "applicants": 157,
-          "ratio": 13.08,
-          "delta": 0
+          "applicants": 165,
+          "ratio": 13.75,
+          "delta": 8
         }
       ],
-      "stamp": "09.11 12:00",
+      "stamp": null,
       "stale": false,
       "status": "live"
     },
@@ -674,9 +674,13 @@
     {
       "at": "2026-09-11T19:46:07.071771+09:00",
       "ballet_total": 643
+    },
+    {
+      "at": "2026-09-11T20:24:22.846082+09:00",
+      "ballet_total": 651
     }
   ],
-  "updated_at": "2026-09-11T19:46:07.071771+09:00",
+  "updated_at": "2026-09-11T20:24:22.846082+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -703,24 +707,24 @@
     ],
     [
       "dongduk",
-      "09.11 12:00",
+      null,
       "1시간 단위",
       "발레 10.01(목) · 한국무용 09.29 · 현대무용 09.30",
       [
         [
           "무용전공(한국무용)",
           12,
-          130
+          136
         ],
         [
           "무용전공(현대무용)",
           12,
-          144
+          151
         ],
         [
           "무용전공(발레)",
           12,
-          157
+          165
         ]
       ]
     ],
