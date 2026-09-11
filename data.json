@@ -55,7 +55,7 @@
           "capacity": 12,
           "applicants": 136,
           "ratio": 11.33,
-          "delta": 6
+          "delta": 0
         },
         {
           "track": "현대무용",
@@ -63,7 +63,7 @@
           "capacity": 12,
           "applicants": 151,
           "ratio": 12.58,
-          "delta": 7
+          "delta": 0
         },
         {
           "track": "발레",
@@ -71,7 +71,7 @@
           "capacity": 12,
           "applicants": 165,
           "ratio": 13.75,
-          "delta": 8
+          "delta": 0
         }
       ],
       "stamp": null,
@@ -92,28 +92,28 @@
           "track": "한국무용",
           "label": "무용예술전공(한국무용)",
           "capacity": 9,
-          "applicants": 131,
-          "ratio": 14.56,
-          "delta": 0
+          "applicants": 135,
+          "ratio": 15.0,
+          "delta": 4
         },
         {
           "track": "현대무용",
           "label": "무용예술전공(현대무용)",
           "capacity": 9,
-          "applicants": 123,
-          "ratio": 13.67,
-          "delta": 0
+          "applicants": 137,
+          "ratio": 15.22,
+          "delta": 14
         },
         {
           "track": "발레",
           "label": "무용예술전공(발레)",
           "capacity": 10,
-          "applicants": 66,
-          "ratio": 6.6,
-          "delta": 0
+          "applicants": 75,
+          "ratio": 7.5,
+          "delta": 9
         }
       ],
-      "stamp": "09.11 12:00",
+      "stamp": null,
       "stale": false,
       "status": "live"
     },
@@ -678,9 +678,13 @@
     {
       "at": "2026-09-11T20:24:22.846082+09:00",
       "ballet_total": 651
+    },
+    {
+      "at": "2026-09-11T20:35:23.378631+09:00",
+      "ballet_total": 660
     }
   ],
-  "updated_at": "2026-09-11T20:24:22.846082+09:00",
+  "updated_at": "2026-09-11T20:35:23.378631+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -730,24 +734,24 @@
     ],
     [
       "sangmyung",
-      "09.11 12:00",
+      null,
       "1시간 단위",
       "10.15(목)~10.17(토) 중 1일 · 10.08 14시 개인별 발표",
       [
         [
           "무용예술전공(한국무용)",
           9,
-          131
+          135
         ],
         [
           "무용예술전공(현대무용)",
           9,
-          123
+          137
         ],
         [
           "무용예술전공(발레)",
           10,
-          66
+          75
         ]
       ]
     ],
