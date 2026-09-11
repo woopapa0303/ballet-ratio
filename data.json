@@ -131,28 +131,28 @@
           "track": "한국무용",
           "label": "무용학부(한국무용)",
           "capacity": 16,
-          "applicants": 142,
-          "ratio": 8.88,
-          "delta": 7
+          "applicants": 144,
+          "ratio": 9.0,
+          "delta": 2
         },
         {
           "track": "현대무용",
           "label": "무용학부(현대무용)",
           "capacity": 16,
-          "applicants": 137,
-          "ratio": 8.56,
-          "delta": 11
+          "applicants": 142,
+          "ratio": 8.88,
+          "delta": 5
         },
         {
           "track": "발레",
           "label": "무용학부(발레)",
           "capacity": 15,
-          "applicants": 128,
-          "ratio": 8.53,
-          "delta": 0
+          "applicants": 130,
+          "ratio": 8.67,
+          "delta": 2
         }
       ],
-      "stamp": "09.11 14:00",
+      "stamp": null,
       "stale": false,
       "status": "live"
     },
@@ -662,9 +662,13 @@
     {
       "at": "2026-09-11T14:00:43.396791+09:00",
       "ballet_total": 628
+    },
+    {
+      "at": "2026-09-11T19:00:21.357443+09:00",
+      "ballet_total": 630
     }
   ],
-  "updated_at": "2026-09-11T14:01:10.254815+09:00",
+  "updated_at": "2026-09-11T19:00:21.357443+09:00",
   "fingerprint": [
     [
       "kookmin",
@@ -737,24 +741,24 @@
     ],
     [
       "khu",
-      "09.11 14:00",
+      null,
       "하루 2회 · 10시/17시",
       "발레 10.03(토) · 현대무용 10.04(일)",
       [
         [
           "무용학부(한국무용)",
           16,
-          142
+          144
         ],
         [
           "무용학부(현대무용)",
           16,
-          137
+          142
         ],
         [
           "무용학부(발레)",
           15,
-          128
+          130
         ]
       ]
     ],
